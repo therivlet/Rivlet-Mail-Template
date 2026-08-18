@@ -1,9 +1,9 @@
-# Rivlet — Email Templates
+# Rivlet — General Email Templates & Brand Assets
 
 > **“Move like water. Feel like air.”**  
 > Premium Indian-crafted activewear, sportswear, athleisure, and easy wear engineered for heat, humidity, and daily motion. Born in Madurai. Launching 2026.
 
-This repository contains official, responsive, table-based HTML email templates for **Rivlet**, designed for high deliverability, Gmail compose compatibility, and mobile responsiveness.
+This repository contains official, responsive, table-based HTML email templates for **Rivlet**, specifically structured for **Gmail Compose** workflow with a branded **Header**, **In-between editable content area**, and comprehensive **Footer**.
 
 ---
 
@@ -11,54 +11,83 @@ This repository contains official, responsive, table-based HTML email templates 
 
 ```text
 Rivlet-Mail-Template/
-├── index.html        # Main branded HTML email template (table-based + inline CSS)
-└── README.md         # Documentation, brand specs & usage guide
+├── index.html                    # Master General Template (Modern Luxury Light)
+├── general-template-light.html    # Variant A: Modern Luxury Light (White Header + Navy Footer)
+├── general-template-navy.html     # Variant B: Iconic Midnight Navy Header
+├── general-template-minimal.html  # Variant C: Minimalist Clean Signature
+├── preview.html                  # Interactive Browser Preview & 1-Click Copy Tool
+├── assets/                       # Official Vector SVGs & High-Res PNG Assets
+│   ├── rivlet-wave-logo.svg      # Vector Wave Icon
+│   ├── rivlet-wordmark.svg       # Vector Rivlet Wordmark
+│   ├── rivlet-logo-lockup.svg    # Vector Combined Lockup (Wave + Wordmark)
+│   ├── rivlet-logo-navy.png      # High-res Navy Lockup (3x)
+│   ├── rivlet-logo-gold.png      # High-res Cardamom Gold Lockup (3x)
+│   ├── rivlet-logo-white.png     # High-res White Lockup (3x)
+│   ├── rivlet-wave-navy.png      # Navy Wave Icon
+│   ├── rivlet-wave-gold.png      # Gold Wave Icon
+│   ├── rivlet-wave-white.png     # White Wave Icon
+│   ├── rivlet-wordmark-navy.png  # Navy Wordmark
+│   ├── rivlet-wordmark-gold.png  # Gold Wordmark
+│   └── rivlet-wordmark-white.png # White Wordmark
+└── scripts/                      # Asset & Template Generation Build Utilities
 ```
 
 ---
 
-## 🎨 Brand Design Specifications
+## 🚀 How to Use in Gmail (Fastest Method)
 
-| Element | Specification |
-| :--- | :--- |
-| **Primary Theme Color** | `#0C1E34` (Deep Midnight Navy) |
-| **Accent & Highlight** | `#C4963A` / `#E5BE6B` (Cardamom Gold / Amber) |
-| **Secondary Accent** | `#7A5C3A` (Cardamom Bronze / Earth) |
-| **Background Tint** | `#F6F4F0` / `#FAF9F6` (Clean Warm Sand) |
-| **Surface White** | `#FFFFFF` |
-| **Text Primary** | `#0C1E34` / `#1F2937` |
-| **Editorial Typography** | *Cormorant Garamond* (Google Fonts serif) |
-| **UI & Body Typography** | *Inter* (Google Fonts sans-serif) |
-| **Technical Specs Font** | *DM Mono* (Google Fonts monospace) |
+### Method 1: Using the 1-Click Preview Helper (`preview.html`)
+1. Open [`preview.html`](file:///c:/Users/thari/.gemini/antigravity-ide/scratch/Rivlet-Mail-Template/preview.html) in your web browser (Chrome, Edge, Safari, Brave).
+2. Choose your preferred style (**Modern Light**, **Iconic Navy**, or **Minimal**).
+3. Click the golden **“📋 Copy for Gmail Compose”** button at the top right.
+4. Open [Gmail](https://mail.google.com) and click **Compose**.
+5. Click inside the email body and press **Ctrl + V** (`Cmd + V` on Mac).
+6. Click into the body text to type or edit your custom message directly in Gmail!
 
----
-
-## 🚀 How to Use in Gmail (Copy & Paste Method)
-
-Gmail does not have a native “Upload HTML file” button. Follow this workflow:
-
-1. **Open `index.html` in your browser**:
-   * Double-click `index.html` or drag it into Chrome, Edge, or Safari.
-2. **Select & Copy the rendered email**:
-   * Press `Ctrl + A` (or `Cmd + A` on Mac) to select all rendered content.
-   * Press `Ctrl + C` (or `Cmd + C` on Mac) to copy.
-3. **Paste into Gmail Compose**:
-   * Open Gmail and click **Compose**.
-   * Click inside the email body and press `Ctrl + V` (`Cmd + V`).
-   * Gmail will preserve the layout, styling, fonts, buttons, and colors.
-4. **Save as a Gmail Template**:
-   * Click **⋮ (More options)** at the bottom-right of the compose toolbar.
-   * Navigate to **Templates** → **Save draft as template** → **Save as new template**.
-   * Name it `Rivlet — Early Access & Launch Edit`.
+### Method 2: Standard Browser Copy
+1. Double-click [`index.html`](file:///c:/Users/thari/.gemini/antigravity-ide/scratch/Rivlet-Mail-Template/index.html) to open in your browser.
+2. Press **Ctrl + A** (`Cmd + A`) to select all rendered content.
+3. Press **Ctrl + C** (`Cmd + C`) to copy.
+4. Go to **Gmail Compose** & press **Ctrl + V** (`Cmd + V`) to paste.
+5. Edit your text in Gmail.
 
 ---
 
-## 🏷️ Dynamic Personalization Fields
+## 💾 How to Save as a Permanent Gmail Template
 
-The template includes placeholder variables compatible with standard ESPs (Mailchimp, Klaviyo, Sendgrid, Brevo):
+Once pasted into Gmail compose, you can save it so you never have to copy/paste again:
 
-* `{{First Name | default: 'there'}}` — Recipient first name
-* `RIVLETFIRST` — 15% VIP early-access launch promo code
+1. In the Gmail compose window, click the **⋮ (More options / three dots)** icon in the bottom-right toolbar.
+2. Hover over **Templates** → **Save draft as template** → **Save as new template**.
+3. Name it **`Rivlet — Official General Template`**.
+4. To compose future emails: Click **⋮** → **Templates** → **`Rivlet — Official General Template`**. The header, footer, and editable content will load instantly!
+
+---
+
+## 🎨 Brand Design Tokens
+
+| Token | Value | Description |
+| :--- | :--- | :--- |
+| **Primary Theme Color** | `#0C1E34` | Deep Midnight Navy |
+| **Secondary Dark** | `#081422` | Deep Obsidian / Footer Base |
+| **Accent & Highlight** | `#C4963A` | Cardamom Gold |
+| **Light Gold Accent** | `#E5BE6B` | Warm Sun Amber |
+| **Bronze Accent** | `#7A5C3A` | Cardamom Bronze / Earth |
+| **Background Sand** | `#F6F4F0` / `#FAF9F6` | Warm Coastal Sand |
+| **Text Primary** | `#0C1E34` / `#1F2937` | High-contrast readable dark slate |
+| **Typography (Headings)** | *Cormorant Garamond* | Editorial serif luxury font |
+| **Typography (Body & UI)**| *Inter* | Crisp modern sans-serif |
+
+---
+
+## 🌓 Dark & Light Theme Adaptation & Perfect Centering
+
+* **Dead-Center Gmail Alignment**: Engineered with `<center>` table architecture, `margin: 0 auto !important`, and nested table centering so that when pasted into Gmail Compose or viewed on widescreen monitors, the email card is positioned **dead center** in the reading pane rather than skewed to the left.
+* **Full Dark & Light Theme Support**: Built with `color-scheme: light dark`, `@media (prefers-color-scheme: dark)` styling, and contrast-resilient branding:
+  - **Light Mode**: Clean white card on warm sand background with Deep Midnight Navy `#0C1E34` typography and cardamom gold highlights.
+  - **Dark Mode**: Automatically adapts to deep midnight navy slate with soft off-white text `#FAF8F5`, muted light gray paragraphs `#CBD5E1`, dark callout backgrounds `#11253E`, and high-contrast gold brand accents `#E5BE6B`.
+* **No Broken Images**: All brand assets (Rivlet wave icon & wordmark) are embedded as optimized Base64 data URIs within the HTML. When pasted into Gmail compose, Gmail embeds them directly into the email body without external CDN dependencies or security warnings.
+* **Client Compatibility**: Built with table-based structure and inline CSS tested for Gmail (Web, iOS, Android), Apple Mail, Microsoft Outlook, Yahoo Mail, and mobile screens.
 
 ---
 
@@ -67,4 +96,6 @@ The template includes placeholder variables compatible with standard ESPs (Mailc
 * **Official Website**: [therivlet.com](https://therivlet.com)
 * **Design & E-commerce Prototype**: [rivlet-ecom-prototype.vercel.app](https://rivlet-ecom-prototype.vercel.app)
 * **Instagram**: [@rivletindia](https://www.instagram.com/rivletindia/)
+* **LinkedIn**: [Rivlet](https://www.linkedin.com/company/rivlet/)
 * **Contact**: [hello@therivlet.com](mailto:hello@therivlet.com)
+

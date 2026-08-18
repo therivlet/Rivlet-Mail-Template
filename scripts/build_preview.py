@@ -1,0 +1,597 @@
+preview_html = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivlet — Email Template Preview & Gmail Helper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #081422;
+      --navy: #0C1E34;
+      --navy-light: #173252;
+      --gold: #C4963A;
+      --gold-light: #E5BE6B;
+      --sand: #F6F4F0;
+      --card-bg: #FFFFFF;
+      --text: #1F2937;
+      --text-muted: #64748B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: #FAF8F5;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(12, 30, 52, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 150, 58, 0.3);
+      padding: 18px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #FAF8F5;
+      text-transform: uppercase;
+    }
+
+    .brand-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gold-light);
+      background: rgba(196, 150, 58, 0.15);
+      border: 1px solid rgba(196, 150, 58, 0.35);
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      background: #081422;
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid #1E2E44;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tab-btn:hover {
+      color: #FAF8F5;
+    }
+
+    .tab-btn.active {
+      background: var(--navy-light);
+      color: var(--gold-light);
+      border: 1px solid rgba(196, 150, 58, 0.4);
+    }
+
+    .theme-toggle-group {
+      display: flex;
+      gap: 4px;
+      background: #081422;
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid #1E2E44;
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .theme-btn.active {
+      background: #C4963A;
+      color: #0C1E34;
+      font-weight: 700;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0C1E34;
+      border: 1px solid var(--gold-light);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      box-shadow: 0 0 15px rgba(196, 150, 58, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #FAF8F5;
+      border: 1px solid #334155;
+    }
+
+    .btn-outline:hover {
+      background: #1E293B;
+      border-color: #475569;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 28px;
+      padding: 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    @media (max-width: 992px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .preview-card {
+      background: #0E1F36;
+      border: 1px solid #1E2E44;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .preview-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #1E2E44;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .preview-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .iframe-wrapper {
+      width: 100%;
+      background: var(--sand);
+      border-radius: 8px;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      border: 1px solid #334155;
+      transition: background-color 0.3s ease;
+    }
+
+    .iframe-wrapper.dark-preview {
+      background: #081422;
+      border-color: #1E2E44;
+    }
+
+    iframe {
+      width: 100%;
+      height: 720px;
+      border: none;
+      background: transparent;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .side-card {
+      background: #0E1F36;
+      border: 1px solid #1E2E44;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .side-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .steps-list {
+      list-style: none;
+      counter-reset: step-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      counter-increment: step-counter;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #CBD5E1;
+      line-height: 1.5;
+    }
+
+    .steps-list li::before {
+      content: counter(step-counter);
+      background: var(--gold);
+      color: #0C1E34;
+      font-weight: 700;
+      font-size: 11px;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .asset-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      background: #081422;
+      border: 1px solid #1E2E44;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .asset-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #94A3B8;
+    }
+
+    .asset-link {
+      font-size: 11px;
+      color: var(--gold-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .asset-link:hover {
+      text-decoration: underline;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--gold);
+      color: #0C1E34;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      display: none;
+      animation: slideUp 0.3s ease;
+      z-index: 1000;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-title">RIVLET</div>
+      <div class="brand-tag">Gmail Template Suite</div>
+    </div>
+
+    <div class="controls-group">
+      <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTemplate('index.html', this)">Variant A: Modern Light</button>
+        <button class="tab-btn" onclick="switchTemplate('general-template-navy.html', this)">Variant B: Iconic Navy</button>
+        <button class="tab-btn" onclick="switchTemplate('general-template-minimal.html', this)">Variant C: Minimal</button>
+      </div>
+
+      <div class="theme-toggle-group">
+        <button class="theme-btn active" id="btnLightMode" onclick="toggleTheme('light')">☀️ Light View</button>
+        <button class="theme-btn" id="btnDarkMode" onclick="toggleTheme('dark')">🌙 Dark View</button>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-gold" onclick="copyRenderedTemplate()">
+        📋 Copy for Gmail Compose
+      </button>
+      <button class="btn btn-outline" onclick="openRaw()">
+        ↗ Open File
+      </button>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="preview-card">
+      <div class="preview-header">
+        <div class="preview-title" id="currentTitle">
+          ✦ Variant A: Modern Luxury Light (Default Centered Template)
+        </div>
+        <div style="font-size: 12px; color: #94A3B8;">
+          Centered Alignment · Dark & Light Theme Adaptive
+        </div>
+      </div>
+      <div class="iframe-wrapper" id="iframeWrapper">
+        <iframe id="previewFrame" src="index.html"></iframe>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="side-card">
+        <div class="side-title">⚡ Gmail Quick Start</div>
+        <ol class="steps-list">
+          <li>Click the golden <strong>“Copy for Gmail Compose”</strong> button at top.</li>
+          <li>Open Gmail and click <strong>Compose</strong>.</li>
+          <li>Click inside the email body and press <strong>Ctrl + V</strong> (Cmd + V on Mac).</li>
+          <li>The email will paste <strong>perfectly centered</strong> in Gmail!</li>
+          <li>Click into the text in Gmail to edit your message.</li>
+          <li><em>Optional:</em> Click <strong>⋮ &rarr; Templates &rarr; Save draft as template</strong> to save in Gmail permanently!</li>
+        </ol>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">🌓 Dark & Light Adaptation</div>
+        <div style="font-size: 12px; color: #CBD5E1; line-height: 1.6;">
+          All templates include native <code>color-scheme: light dark</code> metadata, dark-mode CSS overrides, and contrast-resilient branding so they look crisp on both dark and light modes across Gmail, Apple Mail, and Outlook.
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">📁 Brand Assets Hub</div>
+        <div class="asset-item">
+          <span class="asset-name">rivlet-logo-lockup.svg</span>
+          <a class="asset-link" href="assets/rivlet-logo-lockup.svg" download>Download</a>
+        </div>
+        <div class="asset-item">
+          <span class="asset-name">rivlet-wave-logo.svg</span>
+          <a class="asset-link" href="assets/rivlet-wave-logo.svg" download>Download</a>
+        </div>
+        <div class="asset-item">
+          <span class="asset-name">rivlet-wordmark.svg</span>
+          <a class="asset-link" href="assets/rivlet-wordmark.svg" download>Download</a>
+        </div>
+        <div class="asset-item">
+          <span class="asset-name">rivlet-logo-navy.png (3x)</span>
+          <a class="asset-link" href="assets/rivlet-logo-navy.png" download>Download</a>
+        </div>
+        <div class="asset-item">
+          <span class="asset-name">rivlet-logo-gold.png (3x)</span>
+          <a class="asset-link" href="assets/rivlet-logo-gold.png" download>Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    ✓ Copied to clipboard! Switch to Gmail & press Ctrl+V
+  </div>
+
+  <script>
+    let currentSrc = 'index.html';
+    let currentTheme = 'light';
+
+    function switchTemplate(file, btn) {
+      currentSrc = file;
+      const iframe = document.getElementById('previewFrame');
+      iframe.src = file;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const titles = {
+        'index.html': '✦ Variant A: Modern Luxury Light (Default Centered Template)',
+        'general-template-navy.html': '✦ Variant B: Iconic Deep Midnight Navy Header',
+        'general-template-minimal.html': '✦ Variant C: Minimalist Clean Signature'
+      };
+      document.getElementById('currentTitle').innerText = titles[file] || file;
+      
+      iframe.onload = () => {
+        applyThemeToIframe(currentTheme);
+      };
+    }
+
+    function toggleTheme(theme) {
+      currentTheme = theme;
+      const wrapper = document.getElementById('iframeWrapper');
+      const btnLight = document.getElementById('btnLightMode');
+      const btnDark = document.getElementById('btnDarkMode');
+      
+      if (theme === 'dark') {
+        wrapper.classList.add('dark-preview');
+        btnDark.classList.add('active');
+        btnLight.classList.remove('active');
+      } else {
+        wrapper.classList.remove('dark-preview');
+        btnLight.classList.add('active');
+        btnDark.classList.remove('active');
+      }
+      applyThemeToIframe(theme);
+    }
+
+    function applyThemeToIframe(theme) {
+      const iframe = document.getElementById('previewFrame');
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (!doc) return;
+        
+        let darkStyleTag = doc.getElementById('forced-theme-override');
+        if (theme === 'dark') {
+          if (!darkStyleTag) {
+            darkStyleTag = doc.createElement('style');
+            darkStyleTag.id = 'forced-theme-override';
+            darkStyleTag.innerHTML = `
+              body, .dark-bg-outer { background-color: #081422 !important; }
+              .dark-bg-card { background-color: #0C1E34 !important; border-color: #1E2E44 !important; }
+              .dark-bg-header { background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }
+              .dark-text-primary { color: #FAF8F5 !important; }
+              .dark-text-secondary { color: #CBD5E1 !important; }
+              .dark-callout { background-color: #11253E !important; border-left-color: #E5BE6B !important; }
+              .dark-callout-text { color: #E2E8F0 !important; }
+              .dark-signoff-quote { color: #E5BE6B !important; }
+              .dark-footer { background-color: #050D17 !important; border-top-color: #1E2E44 !important; }
+              .logo-light { display: none !important; }
+              .logo-dark { display: block !important; max-height: none !important; }
+            `;
+            doc.head.appendChild(darkStyleTag);
+          }
+        } else {
+          if (darkStyleTag) {
+            darkStyleTag.remove();
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function openRaw() {
+      window.open(currentSrc, '_blank');
+    }
+
+    async function copyRenderedTemplate() {
+      const iframe = document.getElementById('previewFrame');
+      try {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const html = iframeDoc.documentElement.outerHTML;
+        
+        const blobHtml = new Blob([html], { type: 'text/html' });
+        const blobText = new Blob([iframeDoc.body.innerText], { type: 'text/plain' });
+        
+        const data = [new ClipboardItem({
+          'text/html': blobHtml,
+          'text/plain': blobText
+        })];
+        
+        await navigator.clipboard.write(data);
+        showToast('✓ Centered template copied! Switch to Gmail & paste (Ctrl+V)');
+      } catch (e) {
+        try {
+          const iframeWindow = iframe.contentWindow;
+          const iframeDoc = iframe.contentDocument;
+          iframeWindow.focus();
+          const range = iframeDoc.createRange();
+          range.selectNodeContents(iframeDoc.body);
+          const sel = iframeWindow.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          iframeDoc.execCommand('copy');
+          sel.removeAllRanges();
+          showToast('✓ Copied template to clipboard!');
+        } catch (err) {
+          window.open(currentSrc, '_blank');
+          showToast('Opened in new tab: Press Ctrl+A then Ctrl+C to copy!');
+        }
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 4000);
+    }
+  </script>
+</body>
+</html>
+'''
+
+with open('preview.html', 'w', encoding='utf-8') as f:
+    f.write(preview_html)
+
+print('Updated preview.html with live Dark/Light mode switcher and centered copy helper!')
