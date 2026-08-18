@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rivlet — Email Template Preview & Gmail Helper</title>
+  <title>Rivlet — Elite Email Template Suite & Gmail Helper</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -36,7 +36,7 @@
       background: rgba(12, 30, 52, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(196, 150, 58, 0.3);
-      padding: 18px 32px;
+      padding: 16px 32px;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -74,45 +74,6 @@
       letter-spacing: 1px;
     }
 
-    .controls-group {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .nav-tabs {
-      display: flex;
-      gap: 6px;
-      background: #081422;
-      padding: 4px;
-      border-radius: 8px;
-      border: 1px solid #1E2E44;
-    }
-
-    .tab-btn {
-      background: transparent;
-      border: none;
-      color: #94A3B8;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .tab-btn:hover {
-      color: #FAF8F5;
-    }
-
-    .tab-btn.active {
-      background: var(--navy-light);
-      color: var(--gold-light);
-      border: 1px solid rgba(196, 150, 58, 0.4);
-    }
-
     .action-buttons {
       display: flex;
       gap: 10px;
@@ -123,10 +84,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 18px;
+      padding: 10px 20px;
       border-radius: 6px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.2s ease;
@@ -155,12 +116,59 @@
       border-color: #475569;
     }
 
+    /* Template Category Navigation */
+    .template-selector-bar {
+      background: #0B192C;
+      border-bottom: 1px solid #1E2E44;
+      padding: 10px 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .selector-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 8px;
+    }
+
+    .tab-btn {
+      background: #081422;
+      border: 1px solid #1E2E44;
+      color: #94A3B8;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: #FAF8F5;
+      border-color: #475569;
+    }
+
+    .tab-btn.active {
+      background: var(--navy-light);
+      color: var(--gold-light);
+      border-color: rgba(196, 150, 58, 0.6);
+      font-weight: 700;
+    }
+
     .main-container {
       display: grid;
       grid-template-columns: 1fr 340px;
       gap: 28px;
-      padding: 32px;
-      max-width: 1300px;
+      padding: 28px 32px 40px 32px;
+      max-width: 1340px;
       margin: 0 auto;
       width: 100%;
       flex: 1;
@@ -169,6 +177,10 @@
     @media (max-width: 992px) {
       .main-container {
         grid-template-columns: 1fr;
+        padding: 20px 16px;
+      }
+      .template-selector-bar {
+        padding: 10px 16px;
       }
     }
 
@@ -176,7 +188,7 @@
       background: #0E1F36;
       border: 1px solid #1E2E44;
       border-radius: 12px;
-      padding: 24px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -188,8 +200,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
       border-bottom: 1px solid #1E2E44;
       flex-wrap: wrap;
       gap: 10px;
@@ -197,7 +209,7 @@
 
     .preview-title {
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       color: #E2E8F0;
       display: flex;
       align-items: center;
@@ -216,7 +228,7 @@
 
     iframe {
       width: 100%;
-      height: 720px;
+      height: 780px;
       border: none;
       background: transparent;
     }
@@ -224,18 +236,18 @@
     .sidebar {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
     .side-card {
       background: #0E1F36;
       border: 1px solid #1E2E44;
       border-radius: 12px;
-      padding: 20px;
+      padding: 18px;
     }
 
     .side-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--gold-light);
       text-transform: uppercase;
@@ -251,7 +263,7 @@
       counter-reset: step-counter;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .steps-list li {
@@ -270,13 +282,13 @@
       color: #0C1E34;
       font-weight: 700;
       font-size: 11px;
-      min-width: 20px;
-      height: 20px;
+      min-width: 18px;
+      height: 18px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 1px;
+      margin-top: 2px;
       flex-shrink: 0;
     }
 
@@ -284,16 +296,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 12px;
+      padding: 8px 10px;
       background: #081422;
       border: 1px solid #1E2E44;
       border-radius: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .asset-name {
       font-family: 'DM Mono', monospace;
-      font-size: 12px;
+      font-size: 11px;
       color: #94A3B8;
     }
 
@@ -335,15 +347,7 @@
   <header>
     <div class="brand">
       <div class="brand-title">RIVLET</div>
-      <div class="brand-tag">Gmail Template Suite</div>
-    </div>
-
-    <div class="controls-group">
-      <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTemplate('index.html', this)">Variant A: Modern Light</button>
-        <button class="tab-btn" onclick="switchTemplate('general-template-navy.html', this)">Variant B: Iconic Navy</button>
-        <button class="tab-btn" onclick="switchTemplate('general-template-minimal.html', this)">Variant C: Minimal</button>
-      </div>
+      <div class="brand-tag">Elite Template Suite</div>
     </div>
 
     <div class="action-buttons">
@@ -356,14 +360,27 @@
     </div>
   </header>
 
+  <!-- OCCASION SELECTOR BAR -->
+  <div class="template-selector-bar">
+    <span class="selector-label">Templates:</span>
+    <button class="tab-btn active" onclick="switchTemplate('index.html', this)">🌟 General (Master)</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-vip-launch.html', this)">🚀 VIP Early Access / Drop</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-founder-letter.html', this)">✍️ Founder’s Vision Letter</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-b2b-partnership.html', this)">🤝 B2B & Partnership</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-order-concierge.html', this)">📦 Order Concierge</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-event-invite.html', this)">🏃 Run Club & Event Invite</button>
+    <button class="tab-btn" onclick="switchTemplate('general-template-navy.html', this)">🌌 Iconic Navy</button>
+    <button class="tab-btn" onclick="switchTemplate('general-template-minimal.html', this)">📄 Minimal Signature</button>
+  </div>
+
   <div class="main-container">
     <div class="preview-card">
       <div class="preview-header">
         <div class="preview-title" id="currentTitle">
-          ✦ Variant A: Modern Luxury Light (Default Centered Template)
+          ✦ General Master Template (Centered · Graphic Wordmark & Logo)
         </div>
         <div style="font-size: 12px; color: #94A3B8;">
-          Graphic Wordmark & Wave Images · Centered Layout
+          Graphic Wordmark · Centered in Gmail · Mobile Optimized
         </div>
       </div>
       <div class="iframe-wrapper">
@@ -375,13 +392,23 @@
       <div class="side-card">
         <div class="side-title">⚡ Gmail Quick Start</div>
         <ol class="steps-list">
-          <li>Click the golden <strong>“Copy for Gmail Compose”</strong> button at top.</li>
+          <li>Select your desired occasion template from the top bar.</li>
+          <li>Click the golden <strong>“Copy for Gmail Compose”</strong> button.</li>
           <li>Open Gmail and click <strong>Compose</strong>.</li>
-          <li>Click inside the email body and press <strong>Ctrl + V</strong> (Cmd + V on Mac).</li>
-          <li>The header logo, wordmark image, and centered layout will appear instantly!</li>
-          <li>Click into the middle text in Gmail to edit your message.</li>
-          <li><em>Optional:</em> Click <strong>⋮ &rarr; Templates &rarr; Save draft as template</strong> to save in Gmail permanently!</li>
+          <li>Click into the email body and press <strong>Ctrl + V</strong> (Cmd + V on Mac).</li>
+          <li>Edit your message, greeting, or details directly in Gmail!</li>
         </ol>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">✨ Template Occasions</div>
+        <div style="font-size: 12px; color: #CBD5E1; line-height: 1.6;">
+          • <strong>VIP Launch</strong>: Exclusive early access & drop codes.<br />
+          • <strong>Founder's Letter</strong>: High-touch personal vision & milestones.<br />
+          • <strong>B2B & Collab</strong>: Retailer, studio & athlete outreach.<br />
+          • <strong>Order Concierge</strong>: Luxe transactional care.<br />
+          • <strong>Run Club / Event</strong>: Community motion sessions.
+        </div>
       </div>
 
       <div class="side-card">
@@ -411,11 +438,22 @@
   </div>
 
   <div class="toast" id="toast">
-    ✓ Centered template copied! Switch to Gmail & paste (Ctrl+V)
+    ✓ Template copied! Switch to Gmail & paste (Ctrl+V)
   </div>
 
   <script>
     let currentSrc = 'index.html';
+
+    const titles = {
+      'index.html': '✦ General Master Template (Modern Luxury Light)',
+      'occasion-vip-launch.html': '✦ VIP Early Access & Product Drop Invitation',
+      'occasion-founder-letter.html': '✦ Founder’s Personal Vision & Milestone Dispatch',
+      'occasion-b2b-partnership.html': '✦ B2B Partnership, Stockist & Creator Collaboration',
+      'occasion-order-concierge.html': '✦ Order Confirmation & Luxe Customer Concierge',
+      'occasion-event-invite.html': '✦ Motion Circle & Community Run Club Invitation',
+      'general-template-navy.html': '✦ Variant B: Iconic Deep Midnight Navy Header',
+      'general-template-minimal.html': '✦ Variant C: Minimalist Clean Signature'
+    };
 
     function switchTemplate(file, btn) {
       currentSrc = file;
@@ -423,12 +461,6 @@
       iframe.src = file;
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      
-      const titles = {
-        'index.html': '✦ Variant A: Modern Luxury Light (Default Centered Template)',
-        'general-template-navy.html': '✦ Variant B: Iconic Deep Midnight Navy Header',
-        'general-template-minimal.html': '✦ Variant C: Minimalist Clean Signature'
-      };
       document.getElementById('currentTitle').innerText = titles[file] || file;
     }
 
@@ -451,7 +483,7 @@
         })];
         
         await navigator.clipboard.write(data);
-        showToast('✓ Centered template copied! Switch to Gmail & paste (Ctrl+V)');
+        showToast('✓ Template copied! Switch to Gmail & paste (Ctrl+V)');
       } catch (e) {
         try {
           const iframeWindow = iframe.contentWindow;
