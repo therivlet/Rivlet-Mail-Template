@@ -1,18 +1,8 @@
-import json
 import os
 
-with open('assets/b64_assets.json', 'r') as f:
-    b64_data = json.load(f)
+cdn_icon_url = "https://rivlet-ecom-prototype.vercel.app/apple-touch-icon.png"
 
-wave_navy_b64 = b64_data.get('assets\\rivlet-wave-navy.png') or b64_data.get('assets/rivlet-wave-navy.png')
-wave_gold_b64 = b64_data.get('assets\\rivlet-wave-gold.png') or b64_data.get('assets/rivlet-wave-gold.png')
-wave_white_b64 = b64_data.get('assets\\rivlet-wave-white.png') or b64_data.get('assets/rivlet-wave-white.png')
-
-wordmark_navy_b64 = b64_data.get('assets\\rivlet-wordmark-navy.png') or b64_data.get('assets/rivlet-wordmark-navy.png')
-wordmark_gold_b64 = b64_data.get('assets\\rivlet-wordmark-gold.png') or b64_data.get('assets/rivlet-wordmark-gold.png')
-wordmark_white_b64 = b64_data.get('assets\\rivlet-wordmark-white.png') or b64_data.get('assets/rivlet-wordmark-white.png')
-
-# VARIANT A: Modern Luxury Light (Auto Dark/Light adaptive)
+# 1. VARIANT A: Modern Luxury Light
 template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -24,11 +14,11 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
   <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
   <title>Rivlet — Move like water. Feel like air.</title>
 
-  <!-- Google Fonts: Inter, Cormorant Garamond, DM Mono -->
+  <!-- Google Fonts -->
   <!--[if !mso]><!-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <!--<![endif]-->
 
   <style type="text/css">
@@ -37,13 +27,11 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
       supported-color-schemes: light dark;
     }}
 
-    /* Client-specific Resets */
     body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
     table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
     img {{ -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }}
     body {{ margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #F6F4F0; -webkit-font-smoothing: antialiased; text-align: center; }}
 
-    /* Link overrides */
     a {{ color: inherit; text-decoration: none; }}
     a[x-apple-data-detectors] {{
       color: inherit !important;
@@ -62,7 +50,6 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
       color: #C4963A !important;
     }}
 
-    /* Mobile Responsive */
     @media only screen and (max-width: 600px) {{
       .email-container {{ width: 100% !important; max-width: 100% !important; }}
       .mobile-padding {{ padding-left: 20px !important; padding-right: 20px !important; }}
@@ -71,9 +58,7 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
       .mobile-show {{ display: block !important; }}
     }}
 
-    /* ======================================================== */
-    /* DARK MODE ADAPTATION                                     */
-    /* ======================================================== */
+    /* DARK THEME ADAPTATION */
     @media (prefers-color-scheme: dark) {{
       body, .dark-bg-outer {{
         background-color: #081422 !important;
@@ -91,9 +76,6 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
       }}
       .dark-text-secondary {{
         color: #CBD5E1 !important;
-      }}
-      .dark-text-muted {{
-        color: #94A3B8 !important;
       }}
       .dark-callout {{
         background-color: #11253E !important;
@@ -116,20 +98,13 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
         background-color: #C4963A !important;
         color: #0C1E34 !important;
       }}
-      .logo-light {{
-        display: none !important;
-      }}
-      .logo-dark {{
-        display: block !important;
-        max-height: none !important;
-      }}
     }}
   </style>
 </head>
 
 <body class="dark-bg-outer" style="margin: 0; padding: 0; background-color: #F6F4F0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0C1E34; text-align: center;">
 
-  <!-- PREHEADER SNIPPET (Preview in Gmail Inbox) -->
+  <!-- PREHEADER SNIPPET -->
   <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
     Move like water. Feel like air. — Rivlet official communication.
     &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
@@ -141,7 +116,7 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
       <tr>
         <td align="center" valign="top" style="text-align: center; padding: 28px 12px 44px 12px;">
 
-          <!-- 600px EMAIL CARD WRAPPER -->
+          <!-- 600px EMAIL CARD -->
           <!--[if (gte mso 9)|(IE)]>
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
           <tr>
@@ -149,52 +124,41 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
           <![endif]-->
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #EBE7DF; box-shadow: 0 4px 20px rgba(12, 30, 52, 0.06);">
 
-            <!-- TOP CARDAMOM GOLD ACCENT LINE -->
+            <!-- TOP GOLD ACCENT BAR -->
             <tr>
               <td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td>
             </tr>
 
-            <!-- HEADER: OFFICIAL RIVLET LOGO & LINK -->
+            <!-- HEADER: OFFICIAL RIVLET LOGO & NAME (BULLETPROOF GMAIL COMPATIBLE) -->
             <tr>
               <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 26px 36px 22px 36px; border-bottom: 1px solid #F0ECE4;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <!-- Brand Logo -->
+                    <!-- Brand Logo & Name Lockup -->
                     <td align="left" valign="middle">
                       <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        
-                        <!-- Light Theme Logo (Navy Wordmark + Gold/Navy Wave) -->
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="logo-light">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                           <tr>
-                            <td valign="middle" style="padding-right: 12px;">
-                              <img src="{wave_navy_b64}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
+                            <!-- Official Wave Icon -->
+                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
+                              <div style="width: 34px; height: 34px; border-radius: 8px; overflow: hidden; background-color: #0C1E34; display: inline-block; vertical-align: middle; box-shadow: 0 2px 6px rgba(12,30,52,0.15);">
+                                <img src="{cdn_icon_url}" alt="Rivlet Wave" width="34" height="34" style="display: block; width: 34px; height: 34px; border: 0;" />
+                              </div>
                             </td>
-                            <td valign="middle">
-                              <img src="{wordmark_navy_b64}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
+                            <!-- Official Rivlet Wordmark (Native HTML Typography) -->
+                            <td valign="middle" style="vertical-align: middle;">
+                              <span class="dark-text-primary" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #0C1E34; line-height: 1; text-decoration: none; display: inline-block; vertical-align: middle;">
+                                Rivlet
+                              </span>
                             </td>
                           </tr>
                         </table>
-
-                        <!-- Dark Theme Logo (White Wordmark + Gold Wave) -->
-                        <!--[if !mso]><!-->
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="logo-dark" style="display: none; max-height: 0px; overflow: hidden;">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px;">
-                              <img src="{wave_gold_b64}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle">
-                              <img src="{wordmark_white_b64}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                        <!--<![endif]-->
-
                       </a>
                     </td>
 
                     <!-- Right Header Navigation -->
                     <td align="right" valign="middle" class="mobile-hide">
-                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">
+                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">
                         therivlet.com &rarr;
                       </a>
                     </td>
@@ -270,14 +234,18 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
             <tr>
               <td class="dark-footer mobile-padding" style="background-color: #081422; padding: 36px 36px 30px 36px; text-align: center; border-top: 1px solid #1A283B;">
                 
-                <!-- Footer Logo -->
+                <!-- Footer Logo & Wordmark -->
                 <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 14px auto;">
                   <tr>
-                    <td valign="middle" style="padding-right: 10px;">
-                      <img src="{wave_white_b64}" alt="Rivlet Wave" width="28" height="17" style="display: block; width: 28px; height: 17px; border: 0;" />
+                    <td valign="middle" style="padding-right: 10px; vertical-align: middle;">
+                      <div style="width: 28px; height: 28px; border-radius: 6px; overflow: hidden; background-color: #0C1E34; display: inline-block; vertical-align: middle; border: 1px solid rgba(196,150,58,0.3);">
+                        <img src="{cdn_icon_url}" alt="Rivlet Wave" width="28" height="28" style="display: block; width: 28px; height: 28px; border: 0;" />
+                      </div>
                     </td>
-                    <td valign="middle">
-                      <img src="{wordmark_white_b64}" alt="Rivlet" width="76" height="23" style="display: block; width: 76px; height: 23px; border: 0;" />
+                    <td valign="middle" style="vertical-align: middle;">
+                      <span style="font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 1.5px; color: #FAF8F5; text-transform: uppercase; line-height: 1;">
+                        RIVLET
+                      </span>
                     </td>
                   </tr>
                 </table>
@@ -347,7 +315,7 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
 </html>
 '''
 
-# VARIANT B: Iconic Deep Midnight Navy
+# 2. VARIANT B: Iconic Deep Midnight Navy
 template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -359,12 +327,9 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
   <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
   <title>Rivlet — Move like water. Feel like air.</title>
 
-  <!-- Google Fonts -->
-  <!--[if !mso]><!-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!--<![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style type="text/css">
     body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
@@ -412,18 +377,22 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
 
             <!-- NAVY HEADER -->
             <tr>
-              <td style="background-color: #0C1E34; padding: 26px 36px; border-bottom: 2px solid #C4963A;" class="mobile-padding">
+              <td style="background-color: #0C1E34; padding: 24px 36px; border-bottom: 2px solid #C4963A;" class="mobile-padding">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="left" valign="middle">
                       <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
                         <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                           <tr>
-                            <td valign="middle" style="padding-right: 12px;">
-                              <img src="{wave_gold_b64}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
+                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
+                              <div style="width: 32px; height: 32px; border-radius: 8px; overflow: hidden; background-color: #081422; display: inline-block; vertical-align: middle; border: 1px solid rgba(196,150,58,0.4);">
+                                <img src="{cdn_icon_url}" alt="Rivlet Wave" width="32" height="32" style="display: block; width: 32px; height: 32px; border: 0;" />
+                              </div>
                             </td>
-                            <td valign="middle">
-                              <img src="{wordmark_white_b64}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
+                            <td valign="middle" style="vertical-align: middle;">
+                              <span style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #FAF8F5; line-height: 1; text-decoration: none; display: inline-block; vertical-align: middle;">
+                                Rivlet
+                              </span>
                             </td>
                           </tr>
                         </table>
@@ -478,11 +447,15 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
               <td style="background-color: #081422; padding: 36px 36px 30px 36px; text-align: center; border-top: 1px solid #1A283B;" class="mobile-padding">
                 <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 14px auto;">
                   <tr>
-                    <td valign="middle" style="padding-right: 10px;">
-                      <img src="{wave_white_b64}" alt="Rivlet Wave" width="28" height="17" style="display: block; width: 28px; height: 17px; border: 0;" />
+                    <td valign="middle" style="padding-right: 10px; vertical-align: middle;">
+                      <div style="width: 28px; height: 28px; border-radius: 6px; overflow: hidden; background-color: #0C1E34; display: inline-block; vertical-align: middle; border: 1px solid rgba(196,150,58,0.3);">
+                        <img src="{cdn_icon_url}" alt="Rivlet Wave" width="28" height="28" style="display: block; width: 28px; height: 28px; border: 0;" />
+                      </div>
                     </td>
-                    <td valign="middle">
-                      <img src="{wordmark_white_b64}" alt="Rivlet" width="76" height="23" style="display: block; width: 76px; height: 23px; border: 0;" />
+                    <td valign="middle" style="vertical-align: middle;">
+                      <span style="font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 1.5px; color: #FAF8F5; text-transform: uppercase; line-height: 1;">
+                        RIVLET
+                      </span>
                     </td>
                   </tr>
                 </table>
@@ -523,7 +496,7 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
 </html>
 '''
 
-# VARIANT C: Minimalist Clean Signature (Auto Dark/Light adaptive)
+# 3. VARIANT C: Minimalist Clean Signature
 template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -535,12 +508,9 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
   <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
   <title>Rivlet — Move like water. Feel like air.</title>
 
-  <!-- Google Fonts -->
-  <!--[if !mso]><!-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!--<![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style type="text/css">
     body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
@@ -559,8 +529,6 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
       .dark-text-primary {{ color: #FAF8F5 !important; }}
       .dark-text-secondary {{ color: #CBD5E1 !important; }}
       .dark-footer {{ background-color: #050D17 !important; border-top-color: #1E2E44 !important; }}
-      .logo-light {{ display: none !important; }}
-      .logo-dark {{ display: block !important; max-height: none !important; }}
     }}
   </style>
 </head>
@@ -581,33 +549,22 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
 
             <!-- MINIMAL HEADER -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="padding: 30px 36px 20px 36px; border-bottom: 1px solid #F0ECE4;">
+              <td class="dark-bg-header mobile-padding" style="padding: 28px 36px 20px 36px; border-bottom: 1px solid #F0ECE4;">
                 <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                  
-                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="logo-light">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                      <td valign="middle" style="padding-right: 12px;">
-                        <img src="{wave_navy_b64}" alt="Rivlet Wave" width="30" height="19" style="display: block; width: 30px; height: 19px; border: 0;" />
+                      <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
+                        <div style="width: 30px; height: 30px; border-radius: 6px; overflow: hidden; background-color: #0C1E34; display: inline-block; vertical-align: middle;">
+                          <img src="{cdn_icon_url}" alt="Rivlet Wave" width="30" height="30" style="display: block; width: 30px; height: 30px; border: 0;" />
+                        </div>
                       </td>
-                      <td valign="middle">
-                        <img src="{wordmark_navy_b64}" alt="Rivlet" width="84" height="25" style="display: block; width: 84px; height: 25px; border: 0;" />
+                      <td valign="middle" style="vertical-align: middle;">
+                        <span class="dark-text-primary" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #0C1E34; line-height: 1; text-decoration: none; display: inline-block; vertical-align: middle;">
+                          Rivlet
+                        </span>
                       </td>
                     </tr>
                   </table>
-
-                  <!--[if !mso]><!-->
-                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="logo-dark" style="display: none; max-height: 0px; overflow: hidden;">
-                    <tr>
-                      <td valign="middle" style="padding-right: 12px;">
-                        <img src="{wave_gold_b64}" alt="Rivlet Wave" width="30" height="19" style="display: block; width: 30px; height: 19px; border: 0;" />
-                      </td>
-                      <td valign="middle">
-                        <img src="{wordmark_white_b64}" alt="Rivlet" width="84" height="25" style="display: block; width: 84px; height: 25px; border: 0;" />
-                      </td>
-                    </tr>
-                  </table>
-                  <!--<![endif]-->
-
                 </a>
               </td>
             </tr>
@@ -669,4 +626,4 @@ with open('general-template-navy.html', 'w', encoding='utf-8') as f:
 with open('general-template-minimal.html', 'w', encoding='utf-8') as f:
     f.write(template_minimal)
 
-print('Updated all templates with centering and dark/light mode!')
+print('Cleanly generated all templates with 100% Gmail-compatible logo and wordmark!')
