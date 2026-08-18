@@ -228,7 +228,7 @@ preview_html = '''<!DOCTYPE html>
 
     iframe {
       width: 100%;
-      height: 780px;
+      height: 800px;
       border: none;
       background: transparent;
     }
@@ -364,6 +364,8 @@ preview_html = '''<!DOCTYPE html>
   <div class="template-selector-bar">
     <span class="selector-label">Templates:</span>
     <button class="tab-btn active" onclick="switchTemplate('general-template-light.html', this)">🌟 General (Master)</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-manufacturer-outreach.html', this)">🏭 Manufacturer Outreach & Tech Specs</button>
+    <button class="tab-btn" onclick="switchTemplate('occasion-reply-thread.html', this)">💬 Fast Reply (Ongoing Thread)</button>
     <button class="tab-btn" onclick="switchTemplate('occasion-vip-launch.html', this)">🚀 VIP Early Access / Drop</button>
     <button class="tab-btn" onclick="switchTemplate('occasion-founder-letter.html', this)">✍️ Founder’s Vision Letter</button>
     <button class="tab-btn" onclick="switchTemplate('occasion-b2b-partnership.html', this)">🤝 B2B & Partnership</button>
@@ -396,13 +398,15 @@ preview_html = '''<!DOCTYPE html>
           <li>Click the golden <strong>“Copy for Gmail Compose”</strong> button.</li>
           <li>Open Gmail and click <strong>Compose</strong>.</li>
           <li>Click into the email body and press <strong>Ctrl + V</strong> (Cmd + V on Mac).</li>
-          <li>Edit your message, greeting, or details directly in Gmail!</li>
+          <li>Edit your message, technical specs, or payment terms directly in Gmail!</li>
         </ol>
       </div>
 
       <div class="side-card">
         <div class="side-title">✨ Template Occasions</div>
         <div style="font-size: 12px; color: #CBD5E1; line-height: 1.6;">
+          • <strong>Manufacturer Outreach</strong>: Technical discussion, fabric specs, payment & attachments.<br />
+          • <strong>Fast Reply Thread</strong>: Ultra-clean minimal ongoing thread response.<br />
           • <strong>VIP Launch</strong>: Exclusive early access & drop codes.<br />
           • <strong>Founder's Letter</strong>: High-touch personal vision & milestones.<br />
           • <strong>B2B & Collab</strong>: Retailer, studio & athlete outreach.<br />
@@ -446,6 +450,8 @@ preview_html = '''<!DOCTYPE html>
 
     const titles = {
       'general-template-light.html': '✦ General Master Template (Modern Luxury Light)',
+      'occasion-manufacturer-outreach.html': '✦ Manufacturer Outreach, Technical Specs & Commercial Payment Terms',
+      'occasion-reply-thread.html': '✦ Minimal Quick Reply & Continuous Ongoing Thread Template',
       'occasion-vip-launch.html': '✦ VIP Early Access & Product Drop Invitation',
       'occasion-founder-letter.html': '✦ Founder’s Personal Vision & Milestone Dispatch',
       'occasion-b2b-partnership.html': '✦ B2B Partnership, Stockist & Creator Collaboration',
@@ -515,12 +521,10 @@ preview_html = '''<!DOCTYPE html>
 </html>
 '''
 
-# Set index.html as the home dashboard (replacing preview.html)
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(preview_html)
 
-# Also maintain preview.html as identical copy for backward compatibility
 with open('preview.html', 'w', encoding='utf-8') as f:
     f.write(preview_html)
 
-print('Successfully made preview tool the home page (index.html)!')
+print('Updated preview dashboard (index.html & preview.html) with all 10 templates!')

@@ -22,9 +22,9 @@ base_css = '''
     @media only screen and (max-width: 600px) {
       .email-container { width: 100% !important; max-width: 100% !important; }
       .mobile-padding { padding-left: 16px !important; padding-right: 16px !important; }
-      .mobile-padding-body { padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; padding-bottom: 24px !important; }
+      .mobile-padding-body { padding-left: 18px !important; padding-right: 18px !important; padding-top: 22px !important; padding-bottom: 22px !important; }
       .mobile-stack { display: block !important; width: 100% !important; max-width: 100% !important; }
-      .mobile-stack-gap { padding-bottom: 16px !important; }
+      .mobile-stack-gap { padding-bottom: 14px !important; }
       .header-right { text-align: right !important; }
     }
     @media (prefers-color-scheme: dark) {
@@ -85,7 +85,339 @@ def get_footer():
             </tr>
     '''
 
-# 1. VIP LAUNCH & EXCLUSIVE DROP TEMPLATE
+# 1. MANUFACTURER OUTREACH, TECHNICAL DISCUSSION & PAYMENT TERMS
+manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivlet — Manufacturing Inquiry, Tech Specs & Commercial Terms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style type="text/css">{base_css}</style>
+</head>
+<body class="dark-bg-outer">
+  <center class="dark-bg-outer" style="width: 100%; background-color: #F6F4F0; text-align: center;">
+    <table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-bg-outer" style="margin: 0 auto; width: 100%; border-collapse: collapse; background-color: #F6F4F0;">
+      <tr>
+        <td align="center" valign="top" style="padding: 28px 12px 44px 12px;">
+          <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #EBE7DF; box-shadow: 0 4px 20px rgba(12, 30, 52, 0.06);">
+            
+            <!-- TOP ACCENT BAR -->
+            <tr><td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
+
+            <!-- SUB-HEADER BADGE -->
+            <tr>
+              <td style="background-color: #081422; padding: 8px 24px; text-align: center;">
+                <span style="font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; color: #E5BE6B; letter-spacing: 1.5px; text-transform: uppercase;">
+                  SUPPLY CHAIN & MANUFACTURING · TECH SPEC & PRODUCTION DISPATCH
+                </span>
+              </td>
+            </tr>
+
+            <!-- HEADER -->
+            <tr>
+              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 22px 32px 18px 32px; border-bottom: 1px solid #F0ECE4;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
+                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
+                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
+                            </td>
+                            <td valign="middle" style="vertical-align: middle;">
+                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
+                            </td>
+                          </tr>
+                        </table>
+                      </a>
+                    </td>
+                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
+                      <span style="font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; color: #0C1E34; background-color: #FAF9F6; border: 1px solid #E2D9C8; padding: 5px 12px; border-radius: 4px; text-transform: uppercase;">
+                        RFQ / TECH SPEC
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- CONTENT BODY -->
+            <tr>
+              <td class="dark-bg-card mobile-padding-body" style="background-color: #FFFFFF; padding: 36px 40px 36px 40px;">
+                
+                <p class="dark-text-primary" style="margin: 0 0 16px 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 26px; color: #0C1E34; font-weight: 600;">
+                  Dear [Manufacturer / Mill Contact Name],
+                </p>
+
+                <p class="dark-text-secondary" style="margin: 0 0 18px 0; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 26px; color: #2D3748;">
+                  We are reaching out from <strong>Rivlet</strong> regarding garment sampling, technical fabric sourcing, and production manufacturing for our upcoming technical activewear and athleisure collection.
+                </p>
+
+                <!-- SECTION 1: TECHNICAL SPECIFICATIONS TABLE -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0 20px 0; border: 1px solid #EBE7DF; border-radius: 8px; overflow: hidden;">
+                  <tr style="background-color: #0C1E34;">
+                    <td colspan="2" style="padding: 12px 18px;">
+                      <span style="font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; color: #E5BE6B; letter-spacing: 1px; text-transform: uppercase;">
+                        ⚙️ 01. TECHNICAL & FABRIC SPECIFICATIONS
+                      </span>
+                    </td>
+                  </tr>
+                  <tr style="background-color: #FAF9F6;">
+                    <td width="35%" style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Target Product / SKU</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">Technical Activewear Leggings, Shorts & Motion Tops</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Fabric Composition</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">78% Recycled Polyamide (Nylon) / 22% Elastane (Spandex)</td>
+                  </tr>
+                  <tr style="background-color: #FAF9F6;">
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Fabric Weight / GSM</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">220 GSM – 240 GSM (High-gauge interlock knit, non-sheer / squat-proof)</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Performance Treatments</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">Hydrophilic moisture wicking, 4-way stretch recovery, anti-odor finish</td>
+                  </tr>
+                  <tr style="background-color: #FAF9F6;">
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34;">Stitching & Construction</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748;">4-needle 6-thread flatlock stitching, zero-roll bonded waistband</td>
+                  </tr>
+                </table>
+
+                <!-- SECTION 2: COMMERCIALS, MOQ & PAYMENT DISCUSSION -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0 20px 0; border: 1px solid #EBE7DF; border-radius: 8px; overflow: hidden;">
+                  <tr style="background-color: #0C1E34;">
+                    <td colspan="2" style="padding: 12px 18px;">
+                      <span style="font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; color: #E5BE6B; letter-spacing: 1px; text-transform: uppercase;">
+                        💼 02. COMMERCIAL TERMS & PAYMENT DISCUSSION
+                      </span>
+                    </td>
+                  </tr>
+                  <tr style="background-color: #FAF9F6;">
+                    <td width="35%" style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Sample Quantity & MOQ</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">Proto / Fit Samples (2 pcs/size) · Initial Bulk Batch: 300–500 pcs/style</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Target Sample Lead Time</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">10–14 business days from tech pack confirmation</td>
+                  </tr>
+                  <tr style="background-color: #FAF9F6;">
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Proposed Payment Terms</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;"><strong>Sample:</strong> 100% upon proto dispatch · <strong>Bulk:</strong> 30% advance on PO, 70% against pre-shipment QC report / BL</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34;">Commercial Pricing Format</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748;">Please provide tiered quotation for FOB / Ex-Factory (CMT vs Full Package)</td>
+                  </tr>
+                </table>
+
+                <!-- SECTION 3: ATTACHED DOCUMENTS & TECH PACK FILES -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-callout" style="margin: 22px 0 24px 0; background-color: #FAF9F6; border-left: 3px solid #C4963A; border-radius: 0 8px 8px 0;">
+                  <tr>
+                    <td style="padding: 18px 20px;">
+                      <p style="margin: 0 0 10px 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #7A5C3A; text-transform: uppercase; letter-spacing: 1px;">
+                        📎 Attached Tech Packs & Reference Documents
+                      </p>
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="padding: 4px 0; font-family: 'DM Mono', monospace; font-size: 13px; color: #0C1E34;">
+                            📄 <strong>Rivlet_Tech_Pack_Activewear_Collection_01.pdf</strong> <span style="color: #718096; font-size: 11px;">(Measurements, grading & BOM)</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 4px 0; font-family: 'DM Mono', monospace; font-size: 13px; color: #0C1E34;">
+                            📊 <strong>Fabric_Testing_GSM_Colorway_Standards.xlsx</strong> <span style="color: #718096; font-size: 11px;">(Lab dip codes & test specs)</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 4px 0; font-family: 'DM Mono', monospace; font-size: 13px; color: #0C1E34;">
+                            🏷️ <strong>Packaging_Trims_HeatSeal_Labels.pdf</strong> <span style="color: #718096; font-size: 11px;">(Branding placement guidelines)</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 4px 0; font-family: 'DM Mono', monospace; font-size: 13px; color: #0C1E34;">
+                            🔒 <strong>Mutual_NDA_Manufacturing_Agreement.pdf</strong> <span style="color: #718096; font-size: 11px;">(Signed copy attached)</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- SECTION 4: ACTION ITEMS & CUSTOM MESSAGE -->
+                <p class="dark-text-primary" style="margin: 0 0 10px 0; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #0C1E34;">
+                  Required Next Steps & Quotation Checklist:
+                </p>
+                <ol style="margin: 0 0 20px 20px; padding: 0; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 24px; color: #2D3748;">
+                  <li>Confirmation of fabric blend & yarn availability for prototype sampling.</li>
+                  <li>Sample development cost & estimated courier date.</li>
+                  <li>Tiered bulk production quote (FOB / Ex-Factory) and standard payment term agreement.</li>
+                </ol>
+
+                <p class="dark-text-secondary" style="margin: 0 0 24px 0; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 26px; color: #2D3748;">
+                  [Add your specific notes, delivery deadline, or factory visit inquiry here in Gmail compose.]
+                </p>
+
+                <!-- SIGN-OFF -->
+                <p class="dark-text-secondary" style="margin: 28px 0 0 0; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 24px; color: #2D3748;">
+                  Thank you and looking forward to building a strong production partnership.<br /><br />
+                  Warm regards,<br />
+                  <strong class="dark-text-primary" style="color: #0C1E34; font-size: 16px;">Sourcing & Supply Chain Operations</strong><br />
+                  <strong class="dark-text-primary" style="color: #0C1E34; font-size: 14px;">Rivlet Activewear</strong><br />
+                  <span style="font-size: 13px; color: #718096;">Tamil Nadu, India &nbsp;·&nbsp; hello@therivlet.com &nbsp;·&nbsp; therivlet.com</span>
+                </p>
+              </td>
+            </tr>
+
+            {get_footer()}
+          </table>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
+'''
+
+# 2. MINIMAL FAST-REPLY & CONTINUOUS ONGOING THREAD TEMPLATE
+reply_thread = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivlet — Quick Reply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style type="text/css">
+    :root {{ color-scheme: light dark; supported-color-schemes: light dark; }}
+    body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
+    table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
+    img {{ -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }}
+    body {{ margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #FAF9F6; -webkit-font-smoothing: antialiased; text-align: center; }}
+    a {{ color: inherit; text-decoration: none; }}
+    @media only screen and (max-width: 600px) {{
+      .email-container {{ width: 100% !important; max-width: 100% !important; }}
+      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
+      .header-right {{ text-align: right !important; }}
+    }}
+    @media (prefers-color-scheme: dark) {{
+      body, .dark-bg-outer {{ background-color: #081422 !important; }}
+      .dark-bg-card {{ background-color: #0C1E34 !important; border-color: #1E2E44 !important; }}
+      .dark-bg-header {{ background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }}
+      .dark-text-primary {{ color: #FAF8F5 !important; }}
+      .dark-text-secondary {{ color: #CBD5E1 !important; }}
+      .dark-footer {{ background-color: #050D17 !important; border-top-color: #1E2E44 !important; }}
+    }}
+  </style>
+</head>
+<body class="dark-bg-outer">
+  <center class="dark-bg-outer" style="width: 100%; background-color: #FAF9F6; text-align: center;">
+    <table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-bg-outer" style="margin: 0 auto; width: 100%; border-collapse: collapse; background-color: #FAF9F6;">
+      <tr>
+        <td align="center" valign="top" style="padding: 20px 12px 36px 12px;">
+          
+          <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 8px; border: 1px solid #EBE7DF;">
+            
+            <!-- COMPACT SLEEK HEADER -->
+            <tr>
+              <td class="dark-bg-header mobile-padding" style="padding: 16px 28px 14px 28px; border-bottom: 1px solid #F0ECE4;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
+                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td valign="middle" style="padding-right: 10px; vertical-align: middle;">
+                              <img src="{wave_navy}" alt="Rivlet Wave" width="26" height="16" style="display: block; width: 26px; height: 16px; border: 0;" />
+                            </td>
+                            <td valign="middle" style="vertical-align: middle;">
+                              <img src="{wordmark_navy}" alt="Rivlet" width="76" height="23" style="display: block; width: 76px; height: 23px; border: 0;" />
+                            </td>
+                          </tr>
+                        </table>
+                      </a>
+                    </td>
+                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
+                      <a href="https://therivlet.com" target="_blank" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #7A5C3A; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
+                        therivlet.com &rarr;
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- EDITABLE REPLY BODY -->
+            <tr>
+              <td class="dark-bg-card mobile-padding" style="padding: 28px 28px 28px 28px;">
+                <p class="dark-text-primary" style="margin: 0 0 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 24px; color: #0C1E34; font-weight: 600;">
+                  Hi [Name],
+                </p>
+
+                <p class="dark-text-secondary" style="margin: 0 0 16px 0; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 24px; color: #2D3748;">
+                  Thank you for the update. [Write your quick reply, confirmation, or threaded response here in Gmail compose...]
+                </p>
+
+                <!-- OPTIONAL COMPACT CALLOUT / ACTION NOTE -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-callout" style="margin: 16px 0; background-color: #FAF9F6; border-left: 3px solid #C4963A; border-radius: 0 6px 6px 0;">
+                  <tr>
+                    <td style="padding: 12px 16px;">
+                      <p class="dark-callout-text" style="margin: 0; font-family: 'Inter', sans-serif; font-size: 13px; line-height: 20px; color: #0C1E34;">
+                        <strong>Action Item / Note:</strong> [Insert key deadline, meeting link, or summary item if needed.]
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <p class="dark-text-secondary" style="margin: 0 0 20px 0; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 24px; color: #2D3748;">
+                  Please let me know if you need any additional information.
+                </p>
+
+                <!-- STREAMLINED COMPACT SIGN-OFF -->
+                <p class="dark-text-secondary" style="margin: 20px 0 0 0; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 22px; color: #2D3748;">
+                  Best regards,<br />
+                  <strong class="dark-text-primary" style="color: #0C1E34; font-size: 15px;">[Your Name]</strong><br />
+                  <span style="font-size: 12px; color: #718096;">Rivlet Activewear &nbsp;·&nbsp; Tamil Nadu, India</span>
+                </p>
+              </td>
+            </tr>
+
+            <!-- STREAMLINED COMPACT FOOTER -->
+            <tr>
+              <td class="dark-footer mobile-padding" style="background-color: #FAF9F6; padding: 16px 28px; border-top: 1px solid #F0ECE4; text-align: center;">
+                <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 6px auto;">
+                  <tr>
+                    <td valign="middle" style="padding-right: 8px; vertical-align: middle;">
+                      <img src="{wave_navy}" alt="Rivlet Wave" width="18" height="11" style="display: block; width: 18px; height: 11px; border: 0;" />
+                    </td>
+                    <td valign="middle" style="vertical-align: middle;">
+                      <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; font-style: italic; color: #7A5C3A;">
+                        “Move like water. Feel like air.”
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 10px; line-height: 14px; color: #8C9BAE;">
+                  Rivlet &nbsp;·&nbsp; Tamil Nadu, India &nbsp;·&nbsp; <a href="mailto:hello@therivlet.com" style="color: #7A5C3A; text-decoration: none;">hello@therivlet.com</a> &nbsp;·&nbsp; <a href="https://therivlet.com" target="_blank" style="color: #7A5C3A; text-decoration: none;">therivlet.com</a>
+                </p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
+'''
+
+# 3. VIP LAUNCH & EXCLUSIVE DROP TEMPLATE
 vip_launch = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -214,7 +546,7 @@ vip_launch = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 </html>
 '''
 
-# 2. FOUNDER'S PERSONAL LETTER & VISION NOTE
+# 4. FOUNDER'S PERSONAL LETTER & VISION NOTE
 founder_letter = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -324,7 +656,7 @@ founder_letter = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
 </html>
 '''
 
-# 3. B2B, PARTNERSHIP & COLLABORATION INQUIRY
+# 5. B2B, PARTNERSHIP & COLLABORATION INQUIRY
 b2b_partnership = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -446,7 +778,7 @@ b2b_partnership = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/
 </html>
 '''
 
-# 4. LUXE ORDER CONCIERGE & APPRECIATION
+# 6. LUXE ORDER CONCIERGE & APPRECIATION
 order_concierge = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -561,7 +893,7 @@ order_concierge = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/
 </html>
 '''
 
-# 5. EVENT / MASTERCLASS / RUN CLUB INVITATION
+# 7. EVENT / MASTERCLASS / RUN CLUB INVITATION
 event_invite = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -698,7 +1030,13 @@ event_invite = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
 </html>
 '''
 
-# Write occasion files
+# Write all occasion files
+with open('occasion-manufacturer-outreach.html', 'w', encoding='utf-8') as f:
+    f.write(manufacturer_outreach)
+
+with open('occasion-reply-thread.html', 'w', encoding='utf-8') as f:
+    f.write(reply_thread)
+
 with open('occasion-vip-launch.html', 'w', encoding='utf-8') as f:
     f.write(vip_launch)
 
@@ -714,4 +1052,4 @@ with open('occasion-order-concierge.html', 'w', encoding='utf-8') as f:
 with open('occasion-event-invite.html', 'w', encoding='utf-8') as f:
     f.write(event_invite)
 
-print('Successfully generated 5 elite occasion templates!')
+print('Successfully generated 7 occasion templates including Manufacturer Outreach & Reply Thread!')
