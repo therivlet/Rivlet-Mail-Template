@@ -603,10 +603,10 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
 </html>
 '''
 
-with open('index.html', 'w', encoding='utf-8') as f:
+with open('general-template-light.html', 'w', encoding='utf-8') as f:
     f.write(template_light)
 
-with open('general-template-light.html', 'w', encoding='utf-8') as f:
+with open('general-template.html', 'w', encoding='utf-8') as f:
     f.write(template_light)
 
 with open('general-template-navy.html', 'w', encoding='utf-8') as f:
@@ -615,4 +615,4 @@ with open('general-template-navy.html', 'w', encoding='utf-8') as f:
 with open('general-template-minimal.html', 'w', encoding='utf-8') as f:
     f.write(template_minimal)
 
-print('Updated all templates: Removed Madurai & Prototype, fixed header right alignment for mobile!')
+print('Updated all email templates cleanly!')

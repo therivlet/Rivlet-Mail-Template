@@ -363,7 +363,7 @@ preview_html = '''<!DOCTYPE html>
   <!-- OCCASION SELECTOR BAR -->
   <div class="template-selector-bar">
     <span class="selector-label">Templates:</span>
-    <button class="tab-btn active" onclick="switchTemplate('index.html', this)">🌟 General (Master)</button>
+    <button class="tab-btn active" onclick="switchTemplate('general-template-light.html', this)">🌟 General (Master)</button>
     <button class="tab-btn" onclick="switchTemplate('occasion-vip-launch.html', this)">🚀 VIP Early Access / Drop</button>
     <button class="tab-btn" onclick="switchTemplate('occasion-founder-letter.html', this)">✍️ Founder’s Vision Letter</button>
     <button class="tab-btn" onclick="switchTemplate('occasion-b2b-partnership.html', this)">🤝 B2B & Partnership</button>
@@ -384,7 +384,7 @@ preview_html = '''<!DOCTYPE html>
         </div>
       </div>
       <div class="iframe-wrapper">
-        <iframe id="previewFrame" src="index.html"></iframe>
+        <iframe id="previewFrame" src="general-template-light.html"></iframe>
       </div>
     </div>
 
@@ -442,10 +442,10 @@ preview_html = '''<!DOCTYPE html>
   </div>
 
   <script>
-    let currentSrc = 'index.html';
+    let currentSrc = 'general-template-light.html';
 
     const titles = {
-      'index.html': '✦ General Master Template (Modern Luxury Light)',
+      'general-template-light.html': '✦ General Master Template (Modern Luxury Light)',
       'occasion-vip-launch.html': '✦ VIP Early Access & Product Drop Invitation',
       'occasion-founder-letter.html': '✦ Founder’s Personal Vision & Milestone Dispatch',
       'occasion-b2b-partnership.html': '✦ B2B Partnership, Stockist & Creator Collaboration',
@@ -515,7 +515,12 @@ preview_html = '''<!DOCTYPE html>
 </html>
 '''
 
+# Set index.html as the home dashboard (replacing preview.html)
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(preview_html)
+
+# Also maintain preview.html as identical copy for backward compatibility
 with open('preview.html', 'w', encoding='utf-8') as f:
     f.write(preview_html)
 
-print('Updated preview.html with all 8 elite occasion templates!')
+print('Successfully made preview tool the home page (index.html)!')
