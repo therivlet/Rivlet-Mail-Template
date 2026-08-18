@@ -6,7 +6,7 @@ preview_html = '''<!DOCTYPE html>
   <title>Rivlet — Email Template Preview & Gmail Helper</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-dark: #081422;
@@ -405,7 +405,7 @@ preview_html = '''<!DOCTYPE html>
           ✦ Variant A: Modern Luxury Light (Default Centered Template)
         </div>
         <div style="font-size: 12px; color: #94A3B8;">
-          Centered Alignment · Dark & Light Theme Adaptive
+          Graphic Wordmark & Logo Images · Centered Layout
         </div>
       </div>
       <div class="iframe-wrapper" id="iframeWrapper">
@@ -420,16 +420,16 @@ preview_html = '''<!DOCTYPE html>
           <li>Click the golden <strong>“Copy for Gmail Compose”</strong> button at top.</li>
           <li>Open Gmail and click <strong>Compose</strong>.</li>
           <li>Click inside the email body and press <strong>Ctrl + V</strong> (Cmd + V on Mac).</li>
-          <li>The email will paste <strong>perfectly centered</strong> in Gmail!</li>
-          <li>Click into the text in Gmail to edit your message.</li>
+          <li>The exact graphic wordmark and wave logo will paste seamlessly!</li>
+          <li>Click into the middle text in Gmail to edit your message.</li>
           <li><em>Optional:</em> Click <strong>⋮ &rarr; Templates &rarr; Save draft as template</strong> to save in Gmail permanently!</li>
         </ol>
       </div>
 
       <div class="side-card">
-        <div class="side-title">🌓 Dark & Light Adaptation</div>
+        <div class="side-title">🎨 Graphic Wordmark & Logo</div>
         <div style="font-size: 12px; color: #CBD5E1; line-height: 1.6;">
-          All templates include native <code>color-scheme: light dark</code> metadata, dark-mode CSS overrides, and contrast-resilient branding so they look crisp on both dark and light modes across Gmail, Apple Mail, and Outlook.
+          Uses your official graphic wordmark and wave crest image assets hosted on high-availability HTTPS CDN so they load immediately in Gmail compose and sent emails.
         </div>
       </div>
 
@@ -460,7 +460,7 @@ preview_html = '''<!DOCTYPE html>
   </div>
 
   <div class="toast" id="toast">
-    ✓ Copied to clipboard! Switch to Gmail & press Ctrl+V
+    ✓ Centered template copied! Switch to Gmail & paste (Ctrl+V)
   </div>
 
   <script>
@@ -525,8 +525,6 @@ preview_html = '''<!DOCTYPE html>
               .dark-callout-text { color: #E2E8F0 !important; }
               .dark-signoff-quote { color: #E5BE6B !important; }
               .dark-footer { background-color: #050D17 !important; border-top-color: #1E2E44 !important; }
-              .logo-light { display: none !important; }
-              .logo-dark { display: block !important; max-height: none !important; }
             `;
             doc.head.appendChild(darkStyleTag);
           }
@@ -594,4 +592,4 @@ preview_html = '''<!DOCTYPE html>
 with open('preview.html', 'w', encoding='utf-8') as f:
     f.write(preview_html)
 
-print('Updated preview.html with live Dark/Light mode switcher and centered copy helper!')
+print('Updated preview.html with graphic wordmark!')
