@@ -1,7 +1,7 @@
 # Rivlet — General Email Templates & Brand Assets
 
 > **“Move like water. Feel like air.”**  
-> Premium Indian-crafted activewear, sportswear, athleisure, and easy wear engineered for heat, humidity, and daily motion. Born in Madurai. Launching 2026.
+> Premium Indian-crafted activewear, sportswear, athleisure, and easy wear engineered for heat, humidity, and daily motion. Tamil Nadu, India. Launching 2026.
 
 This repository contains official, responsive, table-based HTML email templates for **Rivlet**, specifically structured for **Gmail Compose** workflow with a branded **Header**, **In-between editable content area**, and comprehensive **Footer**.
 
@@ -80,13 +80,11 @@ Once pasted into Gmail compose, you can save it so you never have to copy/paste 
 
 ---
 
-## 🌓 Dark & Light Theme Adaptation & Perfect Centering
+## 🌓 Perfect Centering & Graphic Wordmark
 
 * **Dead-Center Gmail Alignment**: Engineered with `<center>` table architecture, `margin: 0 auto !important`, and nested table centering so that when pasted into Gmail Compose or viewed on widescreen monitors, the email card is positioned **dead center** in the reading pane rather than skewed to the left.
-* **Full Dark & Light Theme Support**: Built with `color-scheme: light dark`, `@media (prefers-color-scheme: dark)` styling, and contrast-resilient branding:
-  - **Light Mode**: Clean white card on warm sand background with Deep Midnight Navy `#0C1E34` typography and cardamom gold highlights.
-  - **Dark Mode**: Automatically adapts to deep midnight navy slate with soft off-white text `#FAF8F5`, muted light gray paragraphs `#CBD5E1`, dark callout backgrounds `#11253E`, and high-contrast gold brand accents `#E5BE6B`.
-* **No Broken Images**: All brand assets (Rivlet wave icon & wordmark) are embedded as optimized Base64 data URIs within the HTML. When pasted into Gmail compose, Gmail embeds them directly into the email body without external CDN dependencies or security warnings.
+* **Graphic Wordmark & Logo Images**: Uses official high-res graphic wordmark and wave logo images hosted on high-availability HTTPS CDN so they load immediately without being stripped by Gmail.
+* **Always-Right Header Navigation**: The `THERIVLET.COM →` link in the header is locked to the right margin on both desktop and mobile screens.
 * **Client Compatibility**: Built with table-based structure and inline CSS tested for Gmail (Web, iOS, Android), Apple Mail, Microsoft Outlook, Yahoo Mail, and mobile screens.
 
 ---
@@ -94,8 +92,6 @@ Once pasted into Gmail compose, you can save it so you never have to copy/paste 
 ## 🌐 Official References
 
 * **Official Website**: [therivlet.com](https://therivlet.com)
-* **Design & E-commerce Prototype**: [rivlet-ecom-prototype.vercel.app](https://rivlet-ecom-prototype.vercel.app)
 * **Instagram**: [@rivletindia](https://www.instagram.com/rivletindia/)
 * **LinkedIn**: [Rivlet](https://www.linkedin.com/company/rivlet/)
 * **Contact**: [hello@therivlet.com](mailto:hello@therivlet.com)
-

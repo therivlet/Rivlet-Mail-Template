@@ -9,10 +9,6 @@ wordmark_navy_url = "https://files.catbox.moe/sqptty.png"
 wordmark_white_url = "https://files.catbox.moe/w0wucy.png"
 wordmark_gold_url = "https://files.catbox.moe/fyiiwn.png"
 
-logo_navy_url = "https://files.catbox.moe/ukhyeg.png"
-logo_white_url = "https://files.catbox.moe/1nvfv8.png"
-logo_gold_url = "https://files.catbox.moe/4scbix.png"
-
 # 1. VARIANT A: Modern Luxury Light
 template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -63,13 +59,11 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
 
     @media only screen and (max-width: 600px) {{
       .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 20px !important; padding-right: 20px !important; }}
+      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
       .mobile-padding-body {{ padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; padding-bottom: 24px !important; }}
-      .mobile-hide {{ display: none !important; }}
-      .mobile-show {{ display: block !important; }}
+      .header-right {{ text-align: right !important; }}
     }}
 
-    /* DARK THEME ADAPTATION */
     @media (prefers-color-scheme: dark) {{
       body, .dark-bg-outer {{
         background-color: #081422 !important;
@@ -140,21 +134,19 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
               <td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td>
             </tr>
 
-            <!-- HEADER: OFFICIAL RIVLET LOGO & WORDMARK GRAPHIC IMAGES -->
+            <!-- HEADER: OFFICIAL RIVLET LOGO & RIGHT-ALIGNED THERIVLET.COM -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 26px 36px 22px 36px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 24px 32px 20px 32px; border-bottom: 1px solid #F0ECE4;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
                   <tr>
-                    <!-- Brand Logo + Wordmark Images -->
-                    <td align="left" valign="middle">
+                    <!-- Brand Logo + Wordmark Graphic Images (Always Left) -->
+                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
                       <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
                         <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                           <tr>
-                            <!-- Wave Logo Image -->
                             <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
                               <img src="{wave_navy_url}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
                             </td>
-                            <!-- Wordmark Graphic Image -->
                             <td valign="middle" style="vertical-align: middle;">
                               <img src="{wordmark_navy_url}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
                             </td>
@@ -163,10 +155,10 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                       </a>
                     </td>
 
-                    <!-- Right Header Navigation -->
-                    <td align="right" valign="middle" class="mobile-hide">
-                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">
-                        therivlet.com &rarr;
+                    <!-- Right Header Navigation (ALWAYS RIGHT-ALIGNED on Desktop & Mobile) -->
+                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
+                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; display: inline-block; text-align: right;">
+                        THERIVLET.COM &rarr;
                       </a>
                     </td>
                   </tr>
@@ -258,7 +250,7 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                   Move like water. Feel like air.
                 </p>
                 <p style="margin: 0 0 20px 0; font-family: 'Inter', sans-serif; font-size: 12px; color: #8C9BAE; line-height: 18px;">
-                  Indian-Crafted Activewear & Easy Wear &nbsp;·&nbsp; Born in Madurai, Tamil Nadu
+                  Indian-Crafted Activewear & Easy Wear &nbsp;·&nbsp; Tamil Nadu, India
                 </p>
 
                 <!-- Social Links -->
@@ -277,7 +269,7 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                     </td>
                     <td style="color: #4A5568; font-size: 12px;">·</td>
                     <td style="padding: 0 10px;">
-                      <a href="https://rivlet-ecom-prototype.vercel.app/" target="_blank" style="font-family: 'Inter', sans-serif; font-size: 12px; color: #C4963A; text-decoration: none; font-weight: 500;">E-Com Prototype</a>
+                      <a href="mailto:hello@therivlet.com" style="font-family: 'Inter', sans-serif; font-size: 12px; color: #C4963A; text-decoration: none; font-weight: 500;">Contact</a>
                     </td>
                   </tr>
                 </table>
@@ -291,7 +283,7 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
 
                 <!-- Contact & Legal -->
                 <p style="margin: 0 0 6px 0; font-family: 'Inter', sans-serif; font-size: 11px; line-height: 16px; color: #64748B;">
-                  Rivlet Activewear & Apparel, Madurai, Tamil Nadu 625001, India &nbsp;·&nbsp; <a href="mailto:hello@therivlet.com" style="color: #8C9BAE; text-decoration: underline;">hello@therivlet.com</a>
+                  Rivlet Activewear & Apparel, Tamil Nadu, India &nbsp;·&nbsp; <a href="mailto:hello@therivlet.com" style="color: #8C9BAE; text-decoration: underline;">hello@therivlet.com</a>
                 </p>
                 <p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 11px; line-height: 16px; color: #4B5563;">
                   &copy; 2026 Rivlet. All rights reserved. &nbsp;·&nbsp;
@@ -342,9 +334,9 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
     a {{ color: inherit; text-decoration: none; }}
     @media only screen and (max-width: 600px) {{
       .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 20px !important; padding-right: 20px !important; }}
+      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
       .mobile-padding-body {{ padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; padding-bottom: 24px !important; }}
-      .mobile-hide {{ display: none !important; }}
+      .header-right {{ text-align: right !important; }}
     }}
     @media (prefers-color-scheme: dark) {{
       body, .dark-bg-outer {{ background-color: #081422 !important; }}
@@ -374,16 +366,16 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
             <!-- TOP SUB-HEADER -->
             <tr>
               <td style="background-color: #081422; padding: 8px 24px; text-align: center; font-size: 11px; color: #8C9BAE; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;">
-                <span>Indian-Crafted Activewear · Born in Madurai</span>
+                <span>Indian-Crafted Activewear · Tamil Nadu, India</span>
               </td>
             </tr>
 
             <!-- NAVY HEADER -->
             <tr>
-              <td style="background-color: #0C1E34; padding: 24px 36px; border-bottom: 2px solid #C4963A;" class="mobile-padding">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <td class="mobile-padding" style="background-color: #0C1E34; padding: 22px 32px; border-bottom: 2px solid #C4963A;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
                   <tr>
-                    <td align="left" valign="middle">
+                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
                       <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
                         <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                           <tr>
@@ -397,8 +389,8 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
                         </table>
                       </a>
                     </td>
-                    <td align="right" valign="middle" class="mobile-hide">
-                      <a href="https://therivlet.com" target="_blank" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #0C1E34; background-color: #C4963A; padding: 6px 14px; border-radius: 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">
+                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
+                      <a href="https://therivlet.com" target="_blank" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #0C1E34; background-color: #C4963A; padding: 6px 14px; border-radius: 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; text-align: right;">
                         therivlet.com
                       </a>
                     </td>
@@ -458,7 +450,7 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
                   Move like water. Feel like air.
                 </p>
                 <p style="margin: 0 0 20px 0; font-family: 'Inter', sans-serif; font-size: 12px; color: #8C9BAE;">
-                  Indian-Crafted Activewear · Madurai, Tamil Nadu, India
+                  Indian-Crafted Activewear · Tamil Nadu, India
                 </p>
                 <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 20px auto;">
                   <tr>
@@ -515,7 +507,7 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
     a {{ color: inherit; text-decoration: none; }}
     @media only screen and (max-width: 600px) {{
       .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 20px !important; padding-right: 20px !important; }}
+      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
     }}
     @media (prefers-color-scheme: dark) {{
       body, .dark-bg-outer {{ background-color: #081422 !important; }}
@@ -544,19 +536,25 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
 
             <!-- MINIMAL HEADER -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="padding: 28px 36px 20px 36px; border-bottom: 1px solid #F0ECE4;">
-                <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                        <img src="{wave_navy_url}" alt="Rivlet Wave" width="30" height="19" style="display: block; width: 30px; height: 19px; border: 0;" />
-                      </td>
-                      <td valign="middle" style="vertical-align: middle;">
-                        <img src="{wordmark_navy_url}" alt="Rivlet" width="84" height="25" style="display: block; width: 84px; height: 25px; border: 0;" />
-                      </td>
-                    </tr>
-                  </table>
-                </a>
+              <td class="dark-bg-header mobile-padding" style="padding: 24px 32px 18px 32px; border-bottom: 1px solid #F0ECE4;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
+                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
+                              <img src="{wave_navy_url}" alt="Rivlet Wave" width="30" height="19" style="display: block; width: 30px; height: 19px; border: 0;" />
+                            </td>
+                            <td valign="middle" style="vertical-align: middle;">
+                              <img src="{wordmark_navy_url}" alt="Rivlet" width="84" height="25" style="display: block; width: 84px; height: 25px; border: 0;" />
+                            </td>
+                          </tr>
+                        </table>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
 
@@ -584,7 +582,7 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
                   “Move like water. Feel like air.”
                 </p>
                 <p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 11px; line-height: 16px; color: #8C9BAE;">
-                  Rivlet Activewear, Madurai, Tamil Nadu 625001, India &nbsp;·&nbsp; <a href="https://therivlet.com" style="color: #7A5C3A; text-decoration: none;">therivlet.com</a>
+                  Rivlet Activewear, Tamil Nadu, India &nbsp;·&nbsp; <a href="https://therivlet.com" style="color: #7A5C3A; text-decoration: none;">therivlet.com</a>
                 </p>
               </td>
             </tr>
@@ -617,4 +615,4 @@ with open('general-template-navy.html', 'w', encoding='utf-8') as f:
 with open('general-template-minimal.html', 'w', encoding='utf-8') as f:
     f.write(template_minimal)
 
-print('Generated templates with exact wordmark and wave graphic images in header & footer!')
+print('Updated all templates: Removed Madurai & Prototype, fixed header right alignment for mobile!')

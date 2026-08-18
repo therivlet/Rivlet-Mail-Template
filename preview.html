@@ -113,37 +113,6 @@
       border: 1px solid rgba(196, 150, 58, 0.4);
     }
 
-    .theme-toggle-group {
-      display: flex;
-      gap: 4px;
-      background: #081422;
-      padding: 4px;
-      border-radius: 8px;
-      border: 1px solid #1E2E44;
-    }
-
-    .theme-btn {
-      background: transparent;
-      border: none;
-      color: #94A3B8;
-      padding: 6px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      border-radius: 6px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Inter', sans-serif;
-      transition: all 0.2s ease;
-    }
-
-    .theme-btn.active {
-      background: #C4963A;
-      color: #0C1E34;
-      font-weight: 700;
-    }
-
     .action-buttons {
       display: flex;
       gap: 10px;
@@ -243,12 +212,6 @@
       display: flex;
       justify-content: center;
       border: 1px solid #334155;
-      transition: background-color 0.3s ease;
-    }
-
-    .iframe-wrapper.dark-preview {
-      background: #081422;
-      border-color: #1E2E44;
     }
 
     iframe {
@@ -381,11 +344,6 @@
         <button class="tab-btn" onclick="switchTemplate('general-template-navy.html', this)">Variant B: Iconic Navy</button>
         <button class="tab-btn" onclick="switchTemplate('general-template-minimal.html', this)">Variant C: Minimal</button>
       </div>
-
-      <div class="theme-toggle-group">
-        <button class="theme-btn active" id="btnLightMode" onclick="toggleTheme('light')">☀️ Light View</button>
-        <button class="theme-btn" id="btnDarkMode" onclick="toggleTheme('dark')">🌙 Dark View</button>
-      </div>
     </div>
 
     <div class="action-buttons">
@@ -405,10 +363,10 @@
           ✦ Variant A: Modern Luxury Light (Default Centered Template)
         </div>
         <div style="font-size: 12px; color: #94A3B8;">
-          Graphic Wordmark & Logo Images · Centered Layout
+          Graphic Wordmark & Wave Images · Centered Layout
         </div>
       </div>
-      <div class="iframe-wrapper" id="iframeWrapper">
+      <div class="iframe-wrapper">
         <iframe id="previewFrame" src="index.html"></iframe>
       </div>
     </div>
@@ -420,17 +378,10 @@
           <li>Click the golden <strong>“Copy for Gmail Compose”</strong> button at top.</li>
           <li>Open Gmail and click <strong>Compose</strong>.</li>
           <li>Click inside the email body and press <strong>Ctrl + V</strong> (Cmd + V on Mac).</li>
-          <li>The exact graphic wordmark and wave logo will paste seamlessly!</li>
+          <li>The header logo, wordmark image, and centered layout will appear instantly!</li>
           <li>Click into the middle text in Gmail to edit your message.</li>
           <li><em>Optional:</em> Click <strong>⋮ &rarr; Templates &rarr; Save draft as template</strong> to save in Gmail permanently!</li>
         </ol>
-      </div>
-
-      <div class="side-card">
-        <div class="side-title">🎨 Graphic Wordmark & Logo</div>
-        <div style="font-size: 12px; color: #CBD5E1; line-height: 1.6;">
-          Uses your official graphic wordmark and wave crest image assets hosted on high-availability HTTPS CDN so they load immediately in Gmail compose and sent emails.
-        </div>
       </div>
 
       <div class="side-card">
@@ -465,7 +416,6 @@
 
   <script>
     let currentSrc = 'index.html';
-    let currentTheme = 'light';
 
     function switchTemplate(file, btn) {
       currentSrc = file;
@@ -480,62 +430,6 @@
         'general-template-minimal.html': '✦ Variant C: Minimalist Clean Signature'
       };
       document.getElementById('currentTitle').innerText = titles[file] || file;
-      
-      iframe.onload = () => {
-        applyThemeToIframe(currentTheme);
-      };
-    }
-
-    function toggleTheme(theme) {
-      currentTheme = theme;
-      const wrapper = document.getElementById('iframeWrapper');
-      const btnLight = document.getElementById('btnLightMode');
-      const btnDark = document.getElementById('btnDarkMode');
-      
-      if (theme === 'dark') {
-        wrapper.classList.add('dark-preview');
-        btnDark.classList.add('active');
-        btnLight.classList.remove('active');
-      } else {
-        wrapper.classList.remove('dark-preview');
-        btnLight.classList.add('active');
-        btnDark.classList.remove('active');
-      }
-      applyThemeToIframe(theme);
-    }
-
-    function applyThemeToIframe(theme) {
-      const iframe = document.getElementById('previewFrame');
-      try {
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        if (!doc) return;
-        
-        let darkStyleTag = doc.getElementById('forced-theme-override');
-        if (theme === 'dark') {
-          if (!darkStyleTag) {
-            darkStyleTag = doc.createElement('style');
-            darkStyleTag.id = 'forced-theme-override';
-            darkStyleTag.innerHTML = `
-              body, .dark-bg-outer { background-color: #081422 !important; }
-              .dark-bg-card { background-color: #0C1E34 !important; border-color: #1E2E44 !important; }
-              .dark-bg-header { background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }
-              .dark-text-primary { color: #FAF8F5 !important; }
-              .dark-text-secondary { color: #CBD5E1 !important; }
-              .dark-callout { background-color: #11253E !important; border-left-color: #E5BE6B !important; }
-              .dark-callout-text { color: #E2E8F0 !important; }
-              .dark-signoff-quote { color: #E5BE6B !important; }
-              .dark-footer { background-color: #050D17 !important; border-top-color: #1E2E44 !important; }
-            `;
-            doc.head.appendChild(darkStyleTag);
-          }
-        } else {
-          if (darkStyleTag) {
-            darkStyleTag.remove();
-          }
-        }
-      } catch (e) {
-        console.error(e);
-      }
     }
 
     function openRaw() {
