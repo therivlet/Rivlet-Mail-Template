@@ -17,6 +17,7 @@
     .btn-gold:hover { background-color: #D4A343 !important; }
     .btn-navy:hover { background-color: #173252 !important; }
     .nav-link:hover { color: #C4963A !important; }
+    
     @media only screen and (max-width: 600px) {
       .email-container { width: 100% !important; max-width: 100% !important; }
       .mobile-padding { padding-left: 16px !important; padding-right: 16px !important; }
@@ -25,15 +26,18 @@
       .mobile-stack-gap { padding-bottom: 14px !important; }
       .header-right { text-align: right !important; }
     }
+
     @media (prefers-color-scheme: dark) {
       body, .dark-bg-outer { background-color: #081422 !important; }
       .dark-bg-card { background-color: #0C1E34 !important; border-color: #1E2E44 !important; }
-      .dark-bg-header { background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }
       .dark-text-primary { color: #FAF8F5 !important; }
       .dark-text-secondary { color: #CBD5E1 !important; }
       .dark-callout { background-color: #11253E !important; border-left-color: #E5BE6B !important; }
       .dark-callout-text { color: #E2E8F0 !important; }
       .dark-footer { background-color: #050D17 !important; border-top-color: #1E2E44 !important; }
+      /* Keep header locked to cream white so Navy Logo & Wordmark remain crisp on mobile dark mode */
+      .header-cream { background-color: #FAF9F6 !important; border-bottom-color: #EBE7DF !important; }
+      .header-cream a, .header-cream span { color: #0C1E34 !important; }
     }
 </style>
 </head>
@@ -44,9 +48,10 @@
         <td align="center" valign="top" style="padding: 28px 12px 44px 12px;">
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #EBE7DF; box-shadow: 0 4px 20px rgba(12, 30, 52, 0.04);">
             
-            <!-- MINIMALIST ELEGANT HEADER -->
+            
+            <!-- HEADER (PERMANENT CREAM-WHITE BACKGROUND FOR HIGH CONTRAST) -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="padding: 28px 36px 20px 36px; border-bottom: 1px solid #F0ECE4;">
+              <td class="header-cream mobile-padding" bgcolor="#FAF9F6" style="background-color: #FAF9F6 !important; padding: 22px 32px 18px 32px; border-bottom: 1px solid #EBE7DF;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
                   <tr>
                     <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
@@ -64,14 +69,13 @@
                       </a>
                     </td>
                     <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 14px; font-style: italic; color: #7A5C3A;">
-                        Founder’s Dispatch
-                      </span>
+                      <a href="https://therivlet.com" target="_blank" class="nav-link" style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34 !important; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">Founder’s Dispatch</a>
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
+    
 
             <!-- EDITORIAL BODY -->
             <tr>
@@ -93,7 +97,7 @@
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-callout" style="margin: 26px 0; background-color: #FAF9F6; border-left: 3px solid #C4963A; border-radius: 0 8px 8px 0;">
                   <tr>
                     <td style="padding: 20px 24px;">
-                      <p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 19px; line-height: 28px; font-style: italic; color: #0C1E34; font-weight: 500;">
+                      <p class="dark-text-primary" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 19px; line-height: 28px; font-style: italic; color: #0C1E34; font-weight: 500;">
                         “Garments should never be an obstacle between your body and your movement. When activewear is engineered with intention, you completely forget you are wearing it.”
                       </p>
                     </td>

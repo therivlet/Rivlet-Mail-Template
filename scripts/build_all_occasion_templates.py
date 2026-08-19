@@ -19,6 +19,7 @@ base_css = '''
     .btn-gold:hover { background-color: #D4A343 !important; }
     .btn-navy:hover { background-color: #173252 !important; }
     .nav-link:hover { color: #C4963A !important; }
+    
     @media only screen and (max-width: 600px) {
       .email-container { width: 100% !important; max-width: 100% !important; }
       .mobile-padding { padding-left: 16px !important; padding-right: 16px !important; }
@@ -27,17 +28,53 @@ base_css = '''
       .mobile-stack-gap { padding-bottom: 14px !important; }
       .header-right { text-align: right !important; }
     }
+
     @media (prefers-color-scheme: dark) {
       body, .dark-bg-outer { background-color: #081422 !important; }
       .dark-bg-card { background-color: #0C1E34 !important; border-color: #1E2E44 !important; }
-      .dark-bg-header { background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }
       .dark-text-primary { color: #FAF8F5 !important; }
       .dark-text-secondary { color: #CBD5E1 !important; }
       .dark-callout { background-color: #11253E !important; border-left-color: #E5BE6B !important; }
       .dark-callout-text { color: #E2E8F0 !important; }
       .dark-footer { background-color: #050D17 !important; border-top-color: #1E2E44 !important; }
+      /* Keep header locked to cream white so Navy Logo & Wordmark remain crisp on mobile dark mode */
+      .header-cream { background-color: #FAF9F6 !important; border-bottom-color: #EBE7DF !important; }
+      .header-cream a, .header-cream span { color: #0C1E34 !important; }
     }
 '''
+
+# Standard Cream-White Header Lockup (Always Cream White on All Screens)
+def get_header_lockup(nav_text="THERIVLET.COM &rarr;", nav_url="https://therivlet.com", custom_tag=None):
+    tag_html = f'<span style="font-family: \'DM Mono\', monospace; font-size: 11px; font-weight: 700; color: #0C1E34 !important; background-color: #FFFFFF; border: 1px solid #E2D9C8; padding: 5px 12px; border-radius: 4px; text-transform: uppercase;">{custom_tag}</span>' if custom_tag else f'<a href="{nav_url}" target="_blank" class="nav-link" style="font-family: \'Inter\', sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34 !important; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">{nav_text}</a>'
+    
+    return f'''
+            <!-- HEADER (PERMANENT CREAM-WHITE BACKGROUND FOR HIGH CONTRAST) -->
+            <tr>
+              <td class="header-cream mobile-padding" bgcolor="#FAF9F6" style="background-color: #FAF9F6 !important; padding: 22px 32px 18px 32px; border-bottom: 1px solid #EBE7DF;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
+                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
+                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
+                            </td>
+                            <td valign="middle" style="vertical-align: middle;">
+                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
+                            </td>
+                          </tr>
+                        </table>
+                      </a>
+                    </td>
+                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
+                      {tag_html}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+    '''
 
 # Standard Footer Component
 def get_footer():
@@ -104,10 +141,8 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
         <td align="center" valign="top" style="padding: 28px 12px 44px 12px;">
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #EBE7DF; box-shadow: 0 4px 20px rgba(12, 30, 52, 0.06);">
             
-            <!-- TOP ACCENT BAR -->
             <tr><td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
 
-            <!-- SUB-HEADER BADGE -->
             <tr>
               <td style="background-color: #081422; padding: 8px 24px; text-align: center;">
                 <span style="font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; color: #E5BE6B; letter-spacing: 1.5px; text-transform: uppercase;">
@@ -116,34 +151,7 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
               </td>
             </tr>
 
-            <!-- HEADER -->
-            <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 22px 32px 18px 32px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
-                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle" style="vertical-align: middle;">
-                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                      </a>
-                    </td>
-                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <span style="font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; color: #0C1E34; background-color: #FAF9F6; border: 1px solid #E2D9C8; padding: 5px 12px; border-radius: 4px; text-transform: uppercase;">
-                        RFQ / TECH SPEC
-                      </span>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            {get_header_lockup(custom_tag="RFQ / TECH SPEC")}
 
             <!-- CONTENT BODY -->
             <tr>
@@ -171,7 +179,7 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">Technical Activewear Leggings, Shorts & Motion Tops</td>
                   </tr>
                   <tr>
-                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Fabric Composition</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #0C1E34; font-weight: 700; border-bottom: 1px solid #EBE7DF;">Fabric Composition</td>
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">78% Recycled Polyamide (Nylon) / 22% Elastane (Spandex)</td>
                   </tr>
                   <tr style="background-color: #FAF9F6;">
@@ -179,7 +187,7 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">220 GSM – 240 GSM (High-gauge interlock knit, non-sheer / squat-proof)</td>
                   </tr>
                   <tr>
-                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Performance Treatments</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #0C1E34; font-weight: 700; border-bottom: 1px solid #EBE7DF;">Performance Treatments</td>
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">Hydrophilic moisture wicking, 4-way stretch recovery, anti-odor finish</td>
                   </tr>
                   <tr style="background-color: #FAF9F6;">
@@ -202,7 +210,7 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">Proto / Fit Samples (2 pcs/size) · Initial Bulk Batch: 300–500 pcs/style</td>
                   </tr>
                   <tr>
-                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34; border-bottom: 1px solid #EBE7DF;">Target Sample Lead Time</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #0C1E34; font-weight: 700; border-bottom: 1px solid #EBE7DF;">Target Sample Lead Time</td>
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;">10–14 business days from tech pack confirmation</td>
                   </tr>
                   <tr style="background-color: #FAF9F6;">
@@ -210,7 +218,7 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748; border-bottom: 1px solid #EBE7DF;"><strong>Sample:</strong> 100% upon proto dispatch · <strong>Bulk:</strong> 30% advance on PO, 70% against pre-shipment QC report / BL</td>
                   </tr>
                   <tr>
-                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #0C1E34;">Commercial Pricing Format</td>
+                    <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #0C1E34; font-weight: 700;">Commercial Pricing Format</td>
                     <td style="padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; color: #2D3748;">Please provide tiered quotation for FOB / Ex-Factory (CMT vs Full Package)</td>
                   </tr>
                 </table>
@@ -248,7 +256,6 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
                   </tr>
                 </table>
 
-                <!-- SECTION 4: ACTION ITEMS & CUSTOM MESSAGE -->
                 <p class="dark-text-primary" style="margin: 0 0 10px 0; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #0C1E34;">
                   Required Next Steps & Quotation Checklist:
                 </p>
@@ -262,7 +269,6 @@ manufacturer_outreach = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transit
                   [Add your specific notes, delivery deadline, or factory visit inquiry here in Gmail compose.]
                 </p>
 
-                <!-- SIGN-OFF -->
                 <p class="dark-text-secondary" style="margin: 28px 0 0 0; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 24px; color: #2D3748;">
                   Thank you and looking forward to building a strong production partnership.<br /><br />
                   Warm regards,<br />
@@ -293,27 +299,7 @@ reply_thread = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style type="text/css">
-    :root {{ color-scheme: light dark; supported-color-schemes: light dark; }}
-    body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
-    table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
-    img {{ -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }}
-    body {{ margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #FAF9F6; -webkit-font-smoothing: antialiased; text-align: center; }}
-    a {{ color: inherit; text-decoration: none; }}
-    @media only screen and (max-width: 600px) {{
-      .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
-      .header-right {{ text-align: right !important; }}
-    }}
-    @media (prefers-color-scheme: dark) {{
-      body, .dark-bg-outer {{ background-color: #081422 !important; }}
-      .dark-bg-card {{ background-color: #0C1E34 !important; border-color: #1E2E44 !important; }}
-      .dark-bg-header {{ background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }}
-      .dark-text-primary {{ color: #FAF8F5 !important; }}
-      .dark-text-secondary {{ color: #CBD5E1 !important; }}
-      .dark-footer {{ background-color: #050D17 !important; border-top-color: #1E2E44 !important; }}
-    }}
-  </style>
+  <style type="text/css">{base_css}</style>
 </head>
 <body class="dark-bg-outer">
   <center class="dark-bg-outer" style="width: 100%; background-color: #FAF9F6; text-align: center;">
@@ -323,9 +309,9 @@ reply_thread = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
           
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 8px; border: 1px solid #EBE7DF;">
             
-            <!-- COMPACT SLEEK HEADER -->
+            <!-- COMPACT SLEEK CREAM-WHITE HEADER -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="padding: 16px 28px 14px 28px; border-bottom: 1px solid #F0ECE4;">
+              <td class="header-cream mobile-padding" bgcolor="#FAF9F6" style="background-color: #FAF9F6 !important; padding: 16px 28px 14px 28px; border-bottom: 1px solid #EBE7DF;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
                   <tr>
                     <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
@@ -343,7 +329,7 @@ reply_thread = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
                       </a>
                     </td>
                     <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <a href="https://therivlet.com" target="_blank" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #7A5C3A; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
+                      <a href="https://therivlet.com" target="_blank" class="nav-link" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #0C1E34 !important; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
                         therivlet.com &rarr;
                       </a>
                     </td>
@@ -363,7 +349,6 @@ reply_thread = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
                   Thank you for the update. [Write your quick reply, confirmation, or threaded response here in Gmail compose...]
                 </p>
 
-                <!-- OPTIONAL COMPACT CALLOUT / ACTION NOTE -->
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-callout" style="margin: 16px 0; background-color: #FAF9F6; border-left: 3px solid #C4963A; border-radius: 0 6px 6px 0;">
                   <tr>
                     <td style="padding: 12px 16px;">
@@ -396,7 +381,7 @@ reply_thread = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
                       <img src="{wave_navy}" alt="Rivlet Wave" width="18" height="11" style="display: block; width: 18px; height: 11px; border: 0;" />
                     </td>
                     <td valign="middle" style="vertical-align: middle;">
-                      <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; font-style: italic; color: #7A5C3A;">
+                      <span class="dark-text-primary" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; font-style: italic; color: #7A5C3A;">
                         “Move like water. Feel like air.”
                       </span>
                     </td>
@@ -438,34 +423,7 @@ vip_launch = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
             
             <tr><td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
             
-            <!-- HEADER -->
-            <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 24px 32px 20px 32px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
-                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle" style="vertical-align: middle;">
-                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                      </a>
-                    </td>
-                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">
-                        THERIVLET.COM &rarr;
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            {get_header_lockup()}
 
             <!-- HERO EDITORIAL BANNER -->
             <tr>
@@ -565,34 +523,7 @@ founder_letter = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
         <td align="center" valign="top" style="padding: 28px 12px 44px 12px;">
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #EBE7DF; box-shadow: 0 4px 20px rgba(12, 30, 52, 0.04);">
             
-            <!-- MINIMALIST ELEGANT HEADER -->
-            <tr>
-              <td class="dark-bg-header mobile-padding" style="padding: 28px 36px 20px 36px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
-                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle" style="vertical-align: middle;">
-                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                      </a>
-                    </td>
-                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 14px; font-style: italic; color: #7A5C3A;">
-                        Founder’s Dispatch
-                      </span>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            {get_header_lockup(nav_text="Founder’s Dispatch")}
 
             <!-- EDITORIAL BODY -->
             <tr>
@@ -614,7 +545,7 @@ founder_letter = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-callout" style="margin: 26px 0; background-color: #FAF9F6; border-left: 3px solid #C4963A; border-radius: 0 8px 8px 0;">
                   <tr>
                     <td style="padding: 20px 24px;">
-                      <p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 19px; line-height: 28px; font-style: italic; color: #0C1E34; font-weight: 500;">
+                      <p class="dark-text-primary" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 19px; line-height: 28px; font-style: italic; color: #0C1E34; font-weight: 500;">
                         “Garments should never be an obstacle between your body and your movement. When activewear is engineered with intention, you completely forget you are wearing it.”
                       </p>
                     </td>
@@ -677,34 +608,7 @@ b2b_partnership = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/
             
             <tr><td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 100%); line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
 
-            <!-- HEADER -->
-            <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 24px 32px 20px 32px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
-                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle" style="vertical-align: middle;">
-                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                      </a>
-                    </td>
-                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #7A5C3A; background-color: #FAF9F6; border: 1px solid #EBE7DF; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
-                        Partnerships
-                      </span>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            {get_header_lockup(custom_tag="Partnerships")}
 
             <!-- CONTENT BODY -->
             <tr>
@@ -726,17 +630,17 @@ b2b_partnership = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/
                       </p>
                       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                          <td style="padding: 6px 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #0C1E34;">
+                          <td style="padding: 6px 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #0C1E34;" class="dark-text-primary">
                             <strong style="color: #C4963A;">01.</strong> Retail & Specialty Stockists
                           </td>
                         </tr>
                         <tr>
-                          <td style="padding: 6px 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #0C1E34;">
+                          <td style="padding: 6px 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #0C1E34;" class="dark-text-primary">
                             <strong style="color: #C4963A;">02.</strong> Athlete & Creator Ambassador Circle
                           </td>
                         </tr>
                         <tr>
-                          <td style="padding: 6px 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #0C1E34;">
+                          <td style="padding: 6px 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #0C1E34;" class="dark-text-primary">
                             <strong style="color: #C4963A;">03.</strong> Studio, Gym & Corporate Wellness Programs
                           </td>
                         </tr>
@@ -799,34 +703,7 @@ order_concierge = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/
             
             <tr><td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 100%); line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
 
-            <!-- HEADER -->
-            <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 24px 32px 20px 32px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
-                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle" style="vertical-align: middle;">
-                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                      </a>
-                    </td>
-                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <span style="font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; color: #0C1E34; background-color: #E5BE6B; padding: 5px 12px; border-radius: 14px; text-transform: uppercase;">
-                        CONCIERGE
-                      </span>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            {get_header_lockup(custom_tag="CONCIERGE")}
 
             <!-- ORDER STATUS HERO -->
             <tr>
@@ -902,7 +779,7 @@ event_invite = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
   <title>Rivlet — Event Invitation & Motion Session</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style type="text/css">{base_css}</style>
 </head>
 <body class="dark-bg-outer">
@@ -914,34 +791,7 @@ event_invite = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
             
             <tr><td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
 
-            <!-- HEADER -->
-            <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 24px 32px 20px 32px; border-bottom: 1px solid #F0ECE4;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
-                      <a href="https://therivlet.com" target="_blank" style="text-decoration: none; display: inline-block;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td valign="middle" style="padding-right: 12px; vertical-align: middle;">
-                              <img src="{wave_navy}" alt="Rivlet Wave" width="34" height="21" style="display: block; width: 34px; height: 21px; border: 0;" />
-                            </td>
-                            <td valign="middle" style="vertical-align: middle;">
-                              <img src="{wordmark_navy}" alt="Rivlet" width="92" height="28" style="display: block; width: 92px; height: 28px; border: 0;" />
-                            </td>
-                          </tr>
-                        </table>
-                      </a>
-                    </td>
-                    <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;">
-                        THERIVLET.COM &rarr;
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            {get_header_lockup()}
 
             <!-- EVENT HERO -->
             <tr>
@@ -1052,4 +902,4 @@ with open('occasion-order-concierge.html', 'w', encoding='utf-8') as f:
 with open('occasion-event-invite.html', 'w', encoding='utf-8') as f:
     f.write(event_invite)
 
-print('Successfully generated 7 occasion templates including Manufacturer Outreach & Reply Thread!')
+print('Successfully applied permanent cream-white header across all occasion templates!')

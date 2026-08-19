@@ -1,6 +1,5 @@
 import os
 
-# Public HTTPS URLs for exact attached Wordmark & Wave assets
 wave_navy_url = "https://files.catbox.moe/61pie8.png"
 wave_white_url = "https://files.catbox.moe/0tko2b.png"
 wave_gold_url = "https://files.catbox.moe/effuy6.png"
@@ -9,7 +8,90 @@ wordmark_navy_url = "https://files.catbox.moe/sqptty.png"
 wordmark_white_url = "https://files.catbox.moe/w0wucy.png"
 wordmark_gold_url = "https://files.catbox.moe/fyiiwn.png"
 
-# 1. VARIANT A: Modern Luxury Light
+# Common base CSS
+base_css = '''
+    :root {
+      color-scheme: light dark;
+      supported-color-schemes: light dark;
+    }
+
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }
+    body { margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #F6F4F0; -webkit-font-smoothing: antialiased; text-align: center; }
+
+    a { color: inherit; text-decoration: none; }
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    .btn-primary:hover {
+      background-color: #D4A343 !important;
+      border-color: #D4A343 !important;
+    }
+    .nav-link:hover {
+      color: #C4963A !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; max-width: 100% !important; }
+      .mobile-padding { padding-left: 16px !important; padding-right: 16px !important; }
+      .mobile-padding-body { padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; padding-bottom: 24px !important; }
+      .header-right { text-align: right !important; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body, .dark-bg-outer {
+        background-color: #081422 !important;
+      }
+      .dark-bg-card {
+        background-color: #0C1E34 !important;
+        border-color: #1E2E44 !important;
+      }
+      .dark-text-primary {
+        color: #FAF8F5 !important;
+      }
+      .dark-text-secondary {
+        color: #CBD5E1 !important;
+      }
+      .dark-callout {
+        background-color: #11253E !important;
+        border-left-color: #E5BE6B !important;
+      }
+      .dark-callout-title {
+        color: #E5BE6B !important;
+      }
+      .dark-callout-text {
+        color: #E2E8F0 !important;
+      }
+      .dark-signoff-quote {
+        color: #E5BE6B !important;
+      }
+      .dark-footer {
+        background-color: #050D17 !important;
+        border-top-color: #1E2E44 !important;
+      }
+      .dark-btn {
+        background-color: #C4963A !important;
+        color: #0C1E34 !important;
+      }
+      /* Keep header locked to cream white so Navy Logo & Wordmark remain crisp on mobile dark mode */
+      .header-cream {
+        background-color: #FAF9F6 !important;
+        border-bottom-color: #EBE7DF !important;
+      }
+      .header-cream a, .header-cream span {
+        color: #0C1E34 !important;
+      }
+    }
+'''
+
+# 1. VARIANT A: Modern Luxury Light (Permanent Cream-White Header)
 template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -29,99 +111,22 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
   <!--<![endif]-->
 
   <style type="text/css">
-    :root {{
-      color-scheme: light dark;
-      supported-color-schemes: light dark;
-    }}
-
-    body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
-    table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
-    img {{ -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }}
-    body {{ margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #F6F4F0; -webkit-font-smoothing: antialiased; text-align: center; }}
-
-    a {{ color: inherit; text-decoration: none; }}
-    a[x-apple-data-detectors] {{
-      color: inherit !important;
-      text-decoration: none !important;
-      font-size: inherit !important;
-      font-family: inherit !important;
-      font-weight: inherit !important;
-      line-height: inherit !important;
-    }}
-
-    .btn-primary:hover {{
-      background-color: #D4A343 !important;
-      border-color: #D4A343 !important;
-    }}
-    .nav-link:hover {{
-      color: #C4963A !important;
-    }}
-
-    @media only screen and (max-width: 600px) {{
-      .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
-      .mobile-padding-body {{ padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; padding-bottom: 24px !important; }}
-      .header-right {{ text-align: right !important; }}
-    }}
-
-    @media (prefers-color-scheme: dark) {{
-      body, .dark-bg-outer {{
-        background-color: #081422 !important;
-      }}
-      .dark-bg-card {{
-        background-color: #0C1E34 !important;
-        border-color: #1E2E44 !important;
-      }}
-      .dark-bg-header {{
-        background-color: #081422 !important;
-        border-bottom-color: #1E2E44 !important;
-      }}
-      .dark-text-primary {{
-        color: #FAF8F5 !important;
-      }}
-      .dark-text-secondary {{
-        color: #CBD5E1 !important;
-      }}
-      .dark-callout {{
-        background-color: #11253E !important;
-        border-left-color: #E5BE6B !important;
-      }}
-      .dark-callout-title {{
-        color: #E5BE6B !important;
-      }}
-      .dark-callout-text {{
-        color: #E2E8F0 !important;
-      }}
-      .dark-signoff-quote {{
-        color: #E5BE6B !important;
-      }}
-      .dark-footer {{
-        background-color: #050D17 !important;
-        border-top-color: #1E2E44 !important;
-      }}
-      .dark-btn {{
-        background-color: #C4963A !important;
-        color: #0C1E34 !important;
-      }}
-    }}
+{base_css}
   </style>
 </head>
 
 <body class="dark-bg-outer" style="margin: 0; padding: 0; background-color: #F6F4F0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0C1E34; text-align: center;">
 
-  <!-- PREHEADER SNIPPET -->
   <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
     Move like water. Feel like air. — Rivlet official communication.
     &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
   </div>
 
-  <!-- CENTER WRAPPER FOR GMAIL COMPOSE & VIEW -->
   <center class="dark-bg-outer" style="width: 100%; min-width: 100%; background-color: #F6F4F0; text-align: center;">
     <table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-bg-outer" style="margin: 0 auto; text-align: center; width: 100%; max-width: 100%; border-collapse: collapse; background-color: #F6F4F0;">
       <tr>
         <td align="center" valign="top" style="text-align: center; padding: 28px 12px 44px 12px;">
 
-          <!-- 600px EMAIL CARD -->
           <!--[if (gte mso 9)|(IE)]>
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
           <tr>
@@ -129,14 +134,13 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
           <![endif]-->
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #EBE7DF; box-shadow: 0 4px 20px rgba(12, 30, 52, 0.06);">
 
-            <!-- TOP GOLD ACCENT BAR -->
             <tr>
               <td height="4" style="background: linear-gradient(90deg, #0C1E34 0%, #C4963A 50%, #E5BE6B 100%); line-height: 4px; font-size: 4px;">&nbsp;</td>
             </tr>
 
-            <!-- HEADER: OFFICIAL RIVLET LOGO & RIGHT-ALIGNED THERIVLET.COM -->
+            <!-- HEADER (PERMANENT CREAM-WHITE BACKGROUND FOR HIGH CONTRAST) -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="background-color: #FFFFFF; padding: 24px 32px 20px 32px; border-bottom: 1px solid #F0ECE4;">
+              <td class="header-cream mobile-padding" bgcolor="#FAF9F6" style="background-color: #FAF9F6 !important; padding: 24px 32px 20px 32px; border-bottom: 1px solid #EBE7DF;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
                   <tr>
                     <!-- Brand Logo + Wordmark Graphic Images (Always Left) -->
@@ -155,9 +159,9 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                       </a>
                     </td>
 
-                    <!-- Right Header Navigation (ALWAYS RIGHT-ALIGNED on Desktop & Mobile) -->
+                    <!-- Right Header Navigation (ALWAYS RIGHT-ALIGNED) -->
                     <td align="right" valign="middle" class="header-right" style="text-align: right !important; vertical-align: middle; white-space: nowrap; padding: 0 0 0 10px;">
-                      <a href="https://therivlet.com" target="_blank" class="nav-link dark-text-primary" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; display: inline-block; text-align: right;">
+                      <a href="https://therivlet.com" target="_blank" class="nav-link" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0C1E34 !important; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; display: inline-block; text-align: right;">
                         THERIVLET.COM &rarr;
                       </a>
                     </td>
@@ -166,23 +170,18 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
               </td>
             </tr>
 
-            <!-- ======================================================== -->
-            <!-- IN-BETWEEN CONTENT AREA (COMPOSE & EDIT HERE IN GMAIL)   -->
-            <!-- ======================================================== -->
+            <!-- IN-BETWEEN CONTENT AREA -->
             <tr>
               <td class="dark-bg-card mobile-padding-body" style="background-color: #FFFFFF; padding: 36px 40px 40px 40px;">
                 
-                <!-- Salutation / Greeting -->
                 <p class="dark-text-primary" style="margin: 0 0 18px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 26px; color: #0C1E34; font-weight: 600;">
                   Dear [Recipient Name],
                 </p>
 
-                <!-- Body Paragraph 1 -->
                 <p class="dark-text-secondary" style="margin: 0 0 18px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; line-height: 26px; color: #2D3748;">
                   Thank you for connecting with us. We are pleased to reach out regarding our latest updates, partnership inquiries, and the upcoming launch of our Indian-crafted activewear line.
                 </p>
 
-                <!-- Body Paragraph 2 -->
                 <p class="dark-text-secondary" style="margin: 0 0 20px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; line-height: 26px; color: #2D3748;">
                   At <strong class="dark-text-primary" style="color: #0C1E34;">Rivlet</strong>, every piece is engineered for daily motion, extreme heat, and humidity. From our proprietary zero-roll waistbands to sweat-adaptive fabric weaves, our mission is to redefine comfort with uncompromising elegance.
                 </p>
@@ -201,12 +200,11 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                   </tr>
                 </table>
 
-                <!-- Body Paragraph 3 -->
                 <p class="dark-text-secondary" style="margin: 0 0 24px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; line-height: 26px; color: #2D3748;">
                   Please feel free to reply directly to this email if you have any questions, feedback, or would like to schedule a time to speak.
                 </p>
 
-                <!-- OPTIONAL CALL-TO-ACTION BUTTON -->
+                <!-- CALL-TO-ACTION BUTTON -->
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 28px 0 32px 0;">
                   <tr>
                     <td align="center" style="background-color: #0C1E34; border-radius: 6px;" class="dark-btn">
@@ -227,13 +225,10 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
               </td>
             </tr>
 
-            <!-- ======================================================== -->
-            <!-- FOOTER: OFFICIAL LOGO & WORDMARK GRAPHIC IMAGES         -->
-            <!-- ======================================================== -->
+            <!-- FOOTER -->
             <tr>
               <td class="dark-footer mobile-padding" style="background-color: #081422; padding: 36px 36px 30px 36px; text-align: center; border-top: 1px solid #1A283B;">
                 
-                <!-- Footer Wave Logo + Wordmark Graphic Images -->
                 <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 14px auto;">
                   <tr>
                     <td valign="middle" style="padding-right: 10px; vertical-align: middle;">
@@ -245,7 +240,6 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                   </tr>
                 </table>
 
-                <!-- Brand Slogan -->
                 <p style="margin: 0 0 6px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 16px; font-style: italic; color: #E5BE6B; letter-spacing: 0.5px;">
                   Move like water. Feel like air.
                 </p>
@@ -274,14 +268,12 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
                   </tr>
                 </table>
 
-                <!-- Divider -->
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 18px;">
                   <tr>
                     <td style="border-top: 1px solid #1A283B; font-size: 1px; line-height: 1px;">&nbsp;</td>
                   </tr>
                 </table>
 
-                <!-- Contact & Legal -->
                 <p style="margin: 0 0 6px 0; font-family: 'Inter', sans-serif; font-size: 11px; line-height: 16px; color: #64748B;">
                   Rivlet Activewear & Apparel, Tamil Nadu, India &nbsp;·&nbsp; <a href="mailto:hello@therivlet.com" style="color: #8C9BAE; text-decoration: underline;">hello@therivlet.com</a>
                 </p>
@@ -312,14 +304,10 @@ template_light = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
 
 # 2. VARIANT B: Iconic Deep Midnight Navy
 template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="supported-color-schemes" content="light dark" />
-  <meta name="x-apple-disable-message-reformatting" />
-  <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
   <title>Rivlet — Move like water. Feel like air.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -327,25 +315,7 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style type="text/css">
-    body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
-    table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
-    img {{ -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }}
-    body {{ margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #F6F4F0; -webkit-font-smoothing: antialiased; text-align: center; }}
-    a {{ color: inherit; text-decoration: none; }}
-    @media only screen and (max-width: 600px) {{
-      .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
-      .mobile-padding-body {{ padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; padding-bottom: 24px !important; }}
-      .header-right {{ text-align: right !important; }}
-    }}
-    @media (prefers-color-scheme: dark) {{
-      body, .dark-bg-outer {{ background-color: #081422 !important; }}
-      .dark-bg-card {{ background-color: #0C1E34 !important; border-color: #1E2E44 !important; }}
-      .dark-text-primary {{ color: #FAF8F5 !important; }}
-      .dark-text-secondary {{ color: #CBD5E1 !important; }}
-      .dark-callout {{ background-color: #11253E !important; border-left-color: #E5BE6B !important; }}
-      .dark-callout-text {{ color: #E2E8F0 !important; }}
-    }}
+{base_css}
   </style>
 </head>
 
@@ -483,16 +453,12 @@ template_navy = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//E
 </html>
 '''
 
-# 3. VARIANT C: Minimalist Clean Signature
+# 3. VARIANT C: Minimalist Clean Signature (Permanent Cream-White Header)
 template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="supported-color-schemes" content="light dark" />
-  <meta name="x-apple-disable-message-reformatting" />
-  <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
   <title>Rivlet — Move like water. Feel like air.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -500,23 +466,7 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style type="text/css">
-    body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
-    table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
-    img {{ -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; max-width: 100%; height: auto; }}
-    body {{ margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #FAF9F6; -webkit-font-smoothing: antialiased; text-align: center; }}
-    a {{ color: inherit; text-decoration: none; }}
-    @media only screen and (max-width: 600px) {{
-      .email-container {{ width: 100% !important; max-width: 100% !important; }}
-      .mobile-padding {{ padding-left: 16px !important; padding-right: 16px !important; }}
-    }}
-    @media (prefers-color-scheme: dark) {{
-      body, .dark-bg-outer {{ background-color: #081422 !important; }}
-      .dark-bg-card {{ background-color: #0C1E34 !important; border-color: #1E2E44 !important; }}
-      .dark-bg-header {{ background-color: #081422 !important; border-bottom-color: #1E2E44 !important; }}
-      .dark-text-primary {{ color: #FAF8F5 !important; }}
-      .dark-text-secondary {{ color: #CBD5E1 !important; }}
-      .dark-footer {{ background-color: #050D17 !important; border-top-color: #1E2E44 !important; }}
-    }}
+{base_css}
   </style>
 </head>
 
@@ -534,9 +484,9 @@ template_minimal = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional
           <![endif]-->
           <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg-card" style="max-width: 600px; width: 100%; margin: 0 auto !important; margin-left: auto !important; margin-right: auto !important; border-collapse: separate; text-align: left; background-color: #FFFFFF; border-radius: 8px; border: 1px solid #EBE7DF;">
 
-            <!-- MINIMAL HEADER -->
+            <!-- MINIMAL CREAM-WHITE HEADER -->
             <tr>
-              <td class="dark-bg-header mobile-padding" style="padding: 24px 32px 18px 32px; border-bottom: 1px solid #F0ECE4;">
+              <td class="header-cream mobile-padding" bgcolor="#FAF9F6" style="background-color: #FAF9F6 !important; padding: 24px 32px 18px 32px; border-bottom: 1px solid #EBE7DF;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
                   <tr>
                     <td align="left" valign="middle" style="text-align: left; vertical-align: middle; padding: 0;">
@@ -615,4 +565,4 @@ with open('general-template-navy.html', 'w', encoding='utf-8') as f:
 with open('general-template-minimal.html', 'w', encoding='utf-8') as f:
     f.write(template_minimal)
 
-print('Updated all email templates cleanly!')
+print('Updated general templates with permanent cream-white header!')
